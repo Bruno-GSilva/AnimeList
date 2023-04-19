@@ -2,17 +2,9 @@ import React, { useState , useEffect} from "react";
 import { Pressable } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
-// export const globalState = {
-//   boolean: true,
-// };
-
 export function ModalDelete({ open }) {
 
   const [deleteCard, setDeleteCard] = useState(true);
-
-  // useEffect(() => {
-  //   globalState.boolean = deleteCard;
-  // }, [deleteCard]);
 
   if (open) {
     return (

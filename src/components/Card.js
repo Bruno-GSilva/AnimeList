@@ -1,23 +1,19 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 
-import { ModalInfo } from "./ModalInfo";
 import { ModalDelete } from "./ModalDelete";
-import { GlobalContext } from "./Contexts/globalContext";
 
 export function Card(props) {
-  const theContext = useContext(GlobalContext);
   const [Info, setModalInfo] = useState(false);
   const [Delete, setModalDelete] = useState(false);
 
-  // console.log(theContext.DataUser[0]);
-
   return (
-    <View className="w-auto h-48 flex-row px-4 py-6 my-2 mx-2 items-center border-2 rounded-xl bg-black shadow-2xl shadow-white border-yellow-500 overflow-hidden">
+    <View className="w-auto h-auto flex-row px-0 py-0 my-2 mx-2 items-center border-2 rounded-xl bg-black shadow-2xl shadow-white border-yellow-500 overflow-hidden">
       <Pressable
-        className="h-full w-32 mr-6 border-2 rounded-md border-white overflow-hidden active:border-yellow-500"
+        className="h-full w-1/2 mr-6 border-2 rounded-md border-white overflow-hidden active:border-yellow-500"
         onPress={() => setModalInfo(!Info)}
-        onLongPress={() => setModalDelete(!Delete)}>
+        onLongPress={() => setModalDelete(!Delete)}
+      >
         <Image
           source={{
             uri: `${
@@ -31,23 +27,35 @@ export function Card(props) {
         <ModalDelete open={Delete} />
       </Pressable>
       {/* description anime */}
-      <View className="w-48 overflow-y-hidden">
-        <Text className="text-base font-semibold text-white">
-          {!props.titule ? "Descrição do Anime" : props.titule}
+      <View className="items-start gap-3">
+        <View className='w-52 flex-row justify-between items-center mx-4'>
+          <Text className="text-md text-white text-center font-bold">
+            {props.titule}
+          </Text>
+          <Pressable className="border-2 border-white p-2 rounded-3xl ">
+            <Text className="text-md text-white text-center font-semibold">
+              Temporada
+            </Text>
+          </Pressable>
+        </View>
+        <Text className="text-md text-white text-center font-semibold">
+          Status:{" "}
+          {props.status === "Complete" ? (
+            <Text className="text-green-500">{props.status}</Text>
+          ) : (
+            <Text className="text-yellow-500">{props.status}</Text>
+          )}
         </Text>
-        <Text className="text-sm text-slate-500">
-          {!props.description
-            ? "Substitute Soul Reaper Ichigo Kurosaki spends his days fighting against Hollows..."
-            : props.description}
+        <Text className="text-md text-white text-center font-semibold">
+          Genero: {props.genero}
+        </Text>
+        <Text className="text-md text-white text-center font-semibold">
+          Lançamento: {props.launch}
+        </Text>
+        <Text className="text-md text-white text-center font-semibold">
+          Episodios: {props.eps}
         </Text>
       </View>
-      {/* modal info */}
-      <ModalInfo
-        open={Info}
-        quantidade={props.eps}
-        status={props.status}
-        launch={props.launch}
-      />
     </View>
   );
 }

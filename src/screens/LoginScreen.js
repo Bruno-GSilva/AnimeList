@@ -1,7 +1,7 @@
 import React from "react";
-import { Text, View} from "react-native";
+import { Text, View } from "react-native";
 import { Button } from "../components/Button";
-import { Input } from "../components/input";
+import { Input } from "../components/InputText";
 
 export default function LoginScreen({ navigation }) {
 
@@ -12,15 +12,18 @@ export default function LoginScreen({ navigation }) {
           Faça seu login aqui
         </Text>
         <View>
-          <Input text={'Login'}/>
-          <Input text={'Password'} password={true}/>
-          <Button text={'Entrar'} route={() => navigation.navigate("Home")}/>
+          <Input text={"Login"} />
+          <Input text={"Password"} password={true} />
+          <Button text={"Entrar"} route={() => navigation.navigate("Home")} />
           <Text className=" text-white mt-2">
             Não tem login?
             <Text
               className="text-amber-500"
-              onPress={() => navigation.navigate("Register")}>
-               {' '}cadastrar-se aqui!
+              onPress={() => navigation.navigate("Register")}
+              >
+              
+              {" "}
+              cadastrar-se aqui!
             </Text>
           </Text>
         </View>

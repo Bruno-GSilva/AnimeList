@@ -1,9 +1,9 @@
 export const DataAnime = [
     {
       id: "01",
-      name: "Boku No Hero",
+      genero: "Shounen",
       status: "Complete",
-      titule: "My Hero Academia",
+      titule: "boku nohero",
       launch: "Terça-feira",
       description:
         "Por toda a sua vida, Izuku sonhou ser um heroi — um objetivo ambicioso para qualquer um, mas especialmente desafiador para um garoto sem superpoderes. Isso mesmo: em um mundo onde 80% da população tem algum tipo de Dom especial, Izuku teve a má sorte de nascer completamente normal. Mas isso não vai impedi-lo de se matricular em uma das academias de herois mais prestigiosas do mundo",
@@ -13,7 +13,7 @@ export const DataAnime = [
     },
     {
       id: "02",
-      name: "BOFURI",
+      genero: "Sci-fi",
       status: "Complete",
       titule: "BOFURI",
       launch: "Quarta-feira",
@@ -25,7 +25,7 @@ export const DataAnime = [
     },
     {
       id: "03",
-      name: "BORUTO",
+      genero: "Yaoi",
       status: "Em Andamento",
       titule: "BORUTO",
       launch: "Quinta-feira",
@@ -37,7 +37,7 @@ export const DataAnime = [
     },
     {
       id: "04",
-      name: "Demon Slayer",
+      genero: "Shounen",
       status: "Complete",
       titule: "Kimetsu no Yaiba",
       launch: "Sabado",

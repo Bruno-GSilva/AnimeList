@@ -19,7 +19,7 @@ export default function LoginScreen({ navigation }) {
             Não tem login?
             <Text
               className="text-amber-500"
-              onPress={() => navigation.navigate("Register")}
+              onPress={() => navigation.navigate("List")}
               >
               
               {" "}

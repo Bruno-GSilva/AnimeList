@@ -1,9 +1,9 @@
 export const DataAnime = [
     {
-      id: "01",
+      id: 1,
       genero: "Shounen",
       status: "Complete",
-      titule: "boku nohero",
+      titule: "BOKU NO HEROOOOOOOOOOO",
       launch: "Terça-feira",
       description:
         "Por toda a sua vida, Izuku sonhou ser um heroi — um objetivo ambicioso para qualquer um, mas especialmente desafiador para um garoto sem superpoderes. Isso mesmo: em um mundo onde 80% da população tem algum tipo de Dom especial, Izuku teve a má sorte de nascer completamente normal. Mas isso não vai impedi-lo de se matricular em uma das academias de herois mais prestigiosas do mundo",
@@ -12,7 +12,7 @@ export const DataAnime = [
         "https://www.crunchyroll.com/imgsrv/display/thumbnail/1200x675/catalog/crunchyroll/aa31911c746c4d7d027b190f2e184834.jpe",
     },
     {
-      id: "02",
+      id: 2,
       genero: "Sci-fi",
       status: "Complete",
       titule: "BOFURI",
@@ -24,7 +24,7 @@ export const DataAnime = [
         "https://www.crunchyroll.com/imgsrv/display/thumbnail/1200x675/catalog/crunchyroll/2583f9f13ed1f26108ae4279f5b50c94.jpe",
     },
     {
-      id: "03",
+      id: 3,
       genero: "Yaoi",
       status: "Em Andamento",
       titule: "BORUTO",
@@ -36,7 +36,7 @@ export const DataAnime = [
         "https://www.crunchyroll.com/imgsrv/display/thumbnail/1200x675/catalog/crunchyroll/bdbd4f4e247f7290eb847025021e133b.jpe",
     },
     {
-      id: "04",
+      id: 4,
       genero: "Shounen",
       status: "Complete",
       titule: "Kimetsu no Yaiba",

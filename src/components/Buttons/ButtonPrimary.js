@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Pressable } from "react-native";
 
-export function Button(props) {
+export function ButtonPrimary(props) {
   return (
     <Pressable
       className="border-2 border-black h-10 justify-center items-center rounded-lg bg-yellow-500 my-4 active:bg-amber-500"

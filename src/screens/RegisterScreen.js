@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import { Input } from "../components/InputText";
-import { Button } from "../components/Button";
+import { ButtonPrimary } from "../components/Buttons/ButtonPrimary";
 
 export default function RegisterScreen({ navigation }) {
   return (
@@ -14,7 +14,7 @@ export default function RegisterScreen({ navigation }) {
           <Input text={"Email"} />
           <Input text={"Login"} />
           <Input text={"Password"} password={true}/>
-          <Button text={"Cadastrar"} />
+          <ButtonPrimary text={"Cadastrar"} />
           <Text className=" text-white mt-2">
             Já possui login?
             <Text

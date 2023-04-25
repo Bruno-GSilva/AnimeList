@@ -1,7 +1,7 @@
 import React from "react";
 import { Pressable, Text } from "react-native";
 
-export function ButtonCategory({ template, text, navegate }) {
+export function ButtonCategory({ template, text, navegate, press }) {
   if (template === "red") {
     return (
       <Pressable className="w-32 h-10 border-2 border-red-500 justify-center items-center rounded-xl active:bg-red-500 my-2 shadow-2xl shadow-red-500" onPress={navegate}>
@@ -32,7 +32,7 @@ export function ButtonCategory({ template, text, navegate }) {
   }
   if (!template) {
     return (
-      <Pressable className="w-32 h-10 border-2 border-black bg-amber-500  justify-center items-center rounded-xl active:border-yellow-500 active:bg-black">
+      <Pressable className="w-32 h-10 border-2 border-black bg-amber-500  justify-center items-center rounded-xl active:border-yellow-500 active:bg-black" onPress={press}>
         <Text className="text-base font-semibold text-white ">{text}</Text>
       </Pressable>
     );

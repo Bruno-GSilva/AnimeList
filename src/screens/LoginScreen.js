@@ -1,41 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { ButtonPrimary } from "../components/Buttons/ButtonPrimary";
 import { Input } from "../components/InputText";
-// import { DataUser } from "../components/Contexts/DataUserContext";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export default function LoginScreen({ navigation }) {
-  // const [formData, setFormData] = useState({
-  //   login: "",
-  //   password: "",
-  // });
-  // const [form, setForm] = useState({
-  //   login: "",
-  //   password: "",
-  // });
-
-  // function validateForm(login, password) {
-  //   setForm((e)=> {
-  //     e.login =  login,
-  //     e.password = password
-  //   })
-  //   DataUser.map((e)=>{
-  //     if(form.login === e.login){
-  //       console.log("deu bom")
-  //     }else{
-  //       console.log("deu ruim")
-  //     }
-  //   })
-  //   console.log(formData)
-  // }  
-  
-  // useEffect(() => {
-  //   setFormData({
-  //     login: DataUser.map((user) => user.login),
-  //     password: DataUser.map((user) => user.password),
-  //   });
-  // }, [DataUser]);
-
   return (
     <View className="flex-1 justify-center items-center bg-black">
       <View className="h-auto justify-around items-start px-8 py-10 border-4 border-yellow-700 rounded-xl scale-110 bg-black shadow-2xl shadow-white">
@@ -45,18 +14,32 @@ export default function LoginScreen({ navigation }) {
         <View>
           <Input
             text={"Login"}
-            validate={(login) => validateForm(form.login, login)}
+            icon={"user"}
+            placeholder={"Digite seu login aqui..."}
           />
           <Input
             text={"Password"}
             password={true}
-            validate={(password) => validateForm(form.password, password)}
+            icon={"lock"}
+            placeholder={"Digite sua senha aqui..."}
           />
 
           <ButtonPrimary
             text={"Entrar"}
             route={() => navigation.navigate("Home")}
           />
+          <View className='justify-center flex-row'>
+            <Pressable className="h-12 w-12 rounded-2xl mr-3 my-2 justify-center items-center border-2 border-white active:border-amber-500">
+              <Icon name="github" size={23} color={"#fff"} />
+            </Pressable>
+            <Pressable className="h-12 w-12 rounded-2xl mr-3 my-2 justify-center items-center border-2 border-white active:border-amber-500">
+              <Icon name="google" size={23} color={"#fff"} />
+            </Pressable>
+            <Pressable className="h-12 w-12 rounded-2xl mr-0 my-2 justify-center items-center border-2 border-white active:border-amber-500">
+              <Icon name="facebook" size={23} color={"#fff"} />
+            </Pressable>
+          </View>
+
           <Text className=" text-white mt-2">
             Não tem login?
             <Text

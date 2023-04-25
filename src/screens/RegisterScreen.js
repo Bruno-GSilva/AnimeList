@@ -11,9 +11,22 @@ export default function RegisterScreen({ navigation }) {
           Faça seu cadastro aqui
         </Text>
         <View>
-          <Input text={"Email"} />
-          <Input text={"Login"} />
-          <Input text={"Password"} password={true}/>
+          <Input
+            text={"Email"}
+            icon={"envelope"}
+            placeholder={"Digite seu email aqui..."}
+          />
+          <Input
+            text={"Login"}
+            icon={"user"}
+            placeholder={"Digite seu login aqui..."}
+          />
+          <Input
+            text={"Password"}
+            password={true}
+            icon={"lock"}
+            placeholder={"Digite sua senha aqui..."}
+          />
           <ButtonPrimary text={"Cadastrar"} />
           <Text className=" text-white mt-2">
             Já possui login?

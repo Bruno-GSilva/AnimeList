@@ -1,19 +1,34 @@
 import React from "react";
-import { Text, TextInput } from "react-native";
+import { Text, TextInput, View } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export function Input(props) {
-
   return (
-    <>
+    <View>
       <Text className="font-medium text-base text-white my-2">
         {props.text ? props.text : "Insira Algo..."}
       </Text>
-      <TextInput
-        className="focus:bg-slate-800 border-2 border-yellow-500 rounded-lg px-2 text-slate-300 mb-2 w-60"
-        secureTextEntry={!props.password ? false : true}
-        placeholder="typing here..."
-        onChangeText={props.validate}
+      <View className='z-30 top-[6px] left-2'>
+      <Icon
+        name={props.icon}
+        size={18}
+        color={"#fff"}
+        
+        style={
+          {
+            position:'absolute',
+          }
+        }
       />
-    </>
+      </View>
+        <TextInput
+          className="relative mb-2 w-60 rounded-lg px-8  border-2 focus:bg-slate-800 border-white text-slate-300 focus:border-yellow-500"
+          secureTextEntry={!props.password ? false : true}
+          placeholder={props.placeholder}
+          placeholderTextColor={'gray'}
+          onChangeText={props.validate}
+        >
+        </TextInput>
+    </View>
   );
 }

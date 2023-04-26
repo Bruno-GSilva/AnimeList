@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "665310289304",
+    "project_id": "myfirstapp-54bf5",
+    "storage_bucket": "myfirstapp-54bf5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665310289304:android:2a19e6927c34057d925fed",
+        "android_client_info": {
+          "package_name": "AnimeList.v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665310289304-6mjkb7osgepbbh7r9l1fonso2tlng7rt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2k-NNjmyJJLU9UwEvVMVleIhxwoI1mb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665310289304-2jj6vogmej9ppurtq0dand51ueisorpb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

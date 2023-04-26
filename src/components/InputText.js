@@ -26,7 +26,8 @@ export function Input(props) {
           secureTextEntry={!props.password ? false : true}
           placeholder={props.placeholder}
           placeholderTextColor={'gray'}
-          onChangeText={props.validate}
+          value={props.value}
+          onChangeText={props.input}
         >
         </TextInput>
     </View>

@@ -1,20 +1,10 @@
 import React, { useState } from "react";
-import { Image, Pressable, Text, View, StyleSheet } from "react-native";
+import { Image, Pressable, Text, View} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+
 import { ModalDelete } from "../Modals/ModalDelete";
-import { Picker } from '@react-native-picker/picker';
 
 export function CardHorizontal(props) {
-
-  const [selectedLanguage, setSelectedLanguage] = useState();
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      paddingTop: 45,
-      alignItems: "center"
-    }
-  });
-
   const [DeleteCard, setDeleteCard] = useState(false);
 
   return (
@@ -30,19 +20,9 @@ export function CardHorizontal(props) {
       <View className="h-full w-1/2 rounded-2xl p-2">
         <View className="flex-1 flex-row items-center justify-between">
           <Pressable className="flex-1 justify-center flex-row px-2 py-1 border-2 border-amber-500 rounded-xl active:border-white overflow-hidden">
-
-            <View className='flex-1'>
-            <Picker
-              mode="dropdown"
-              selectedValue={selectedLanguage}
-              style={{ backgroundColor: 'red', color: 'black', flex:1, alignItems: 'center' }}
-              onValueChange={(itemValue, itemIndex) => setSelectedLanguage(itemValue)}
-            >
-              <Picker.Item label="Java" value="java" />
-              <Picker.Item label="JavaScript" value="js" />
-            </Picker>
-            </View>
-
+            <Text className="text-xs text-white font-semibold">
+              Temporada 1 <Icon name="sort-down" size={25} color="#fff" />
+            </Text>
           </Pressable>
         </View>
         <View className="flex-1 pt-4 justify-center gap-1">

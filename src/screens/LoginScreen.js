@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, View, Modal } from "react-native";
 import { ButtonPrimary } from "../components/Buttons/ButtonPrimary";
 import { Input } from "../components/InputText";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -12,7 +12,6 @@ export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(false)
-
 
   function validation() {
     const auth = getAuth();

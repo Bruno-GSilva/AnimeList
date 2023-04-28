@@ -1,11 +1,54 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, Image, Pressable, Text, TextInput, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  Pressable,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-
-import { DataAnime } from "../Contexts/DataAnimesContext";
+import axios from "axios";
 
 export function ModalAdicionar({ open }) {
-  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+
+  const searchAnime = async (query) => {
+    const response = await axios.post("https://graphql.anilist.co", {
+      query: `
+        query ($search: String) {
+          Page(perPage: 10) {
+            media(search: $search, type: ANIME) {
+              id
+              title {
+                romaji
+                english
+                native
+              }
+              description(asHtml: false)
+              genres
+              episodes
+              coverImage {
+                medium
+              }
+            }
+          }
+        }
+      `,
+      variables: {
+        search: query,
+      },
+    });
+
+    setResults(response.data.data.Page.media);
+  };
+
+  const handleInputChange = (e) => {
+    setQuery(e);
+    searchAnime(e);
+  };
 
   if (open) {
     return (
@@ -22,57 +65,30 @@ export function ModalAdicionar({ open }) {
         </View>
         <TextInput
           className="w-80 rounded-lg px-9 py-1 text-white border-2 border-black focus:border-amber-500 mb-5"
-          value={search}
-          onChangeText={(text) => setSearch(text)}
+          value={query}
+          onChangeText={handleInputChange}
         />
-
         <FlatList
-          data={DataAnime}
+          data={results}
           renderItem={(anime) => {
-            const animeTitule = anime.item.titule.toLowerCase();
-            const searchAnime = search.toLowerCase();
-
-            if (search === "") {
               return (
-                <Pressable className="flex-row items-center p-2 mb-2 border-2 border-black overflow-hidden rounded-xl active:border-amber-500">
+                <Pressable
+                  key={anime.item.id}
+                  className="flex-row items-center p-2 mb-2 border-2 border-black overflow-hidden rounded-xl active:border-amber-500">
                   <Image
-                    source={{
-                      uri:'https://pt.apkshki.com/storage/12708/icon_63d4e34c0e569_12708_w256.png',
-                    }}
                     className="w-32 h-32 rounded-xl mr-2"
-                  />
+                    source={{ uri: anime.item.coverImage.medium }}
+                    alt={anime.item.title.romaji}></Image>
 
-                  <View className="w-40">
-                    <Text
-                      className="ml-2 my-2 text-base text-white font-semibold"
-                      numberOfLines={1}>
-                        Nome do Anime
-                    </Text>
-                  </View>
+                  <Text
+                    className="w-32 ml-2 my-2 text-base text-white font-semibold"
+                    numberOfLines={3}>
+                    {anime.item.title.romaji}
+                  </Text>
                 </Pressable>
               );
             }
-            if (animeTitule.includes(searchAnime)) {
-              return (
-                <Pressable className="flex-row items-center p-2 mb-2 border-2 border-green-500 overflow-hidden rounded-xl active:border-amber-500">
-                  <Image
-                    source={{
-                      uri: anime.item.image,
-                    }}
-                    className="w-32 h-32 rounded-xl mr-2"
-                  />
-
-                  <View className="w-40">
-                    <Text
-                      className="ml-2 my-2 text-base text-white font-semibold"
-                      numberOfLines={1}>
-                      {anime.item.titule}
-                    </Text>
-                  </View>
-                </Pressable>
-              );
-            }
-          }}
+          }
         />
       </View>
     );

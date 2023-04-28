@@ -7,7 +7,7 @@ import { ButtonCategory } from "../components/Buttons/ButtonCategory";
 import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
 
 export default function ListScreen() {
-
+  
   const [openBuscar, setBuscar] = useState(false)
 
   return (
@@ -40,12 +40,6 @@ export default function ListScreen() {
           </ScrollView>
         </View>
       </View>
-      {/* <Swipeable renderLeftActions={rightdelete}>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-        content
-        </GestureHandlerRootView>
-        ;
-      </Swipeable> */}
     </View>
   );
 }

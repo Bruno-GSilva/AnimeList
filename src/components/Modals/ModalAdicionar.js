@@ -20,7 +20,7 @@ export function ModalAdicionar({ open }) {
       query: `
         query ($search: String) {
           Page(perPage: 10) {
-            media(search: $search, type: ANIME) {
+            media(search: $search, type: ANIME, isAdult:false) {
               id
               title {
                 romaji
@@ -31,7 +31,7 @@ export function ModalAdicionar({ open }) {
               genres
               episodes
               coverImage {
-                medium
+                large
               }
             }
           }
@@ -77,7 +77,7 @@ export function ModalAdicionar({ open }) {
                   className="flex-row items-center p-2 mb-2 border-2 border-black overflow-hidden rounded-xl active:border-amber-500">
                   <Image
                     className="w-32 h-32 rounded-xl mr-2"
-                    source={{ uri: anime.item.coverImage.medium }}
+                    source={{ uri: anime.item.coverImage.large }}
                     alt={anime.item.title.romaji}></Image>
 
                   <Text

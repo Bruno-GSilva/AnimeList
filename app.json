@@ -4,10 +4,10 @@
     "slug": "myApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "https://images.alphacoders.com/109/1099923.jpg",
+    "icon": "https://art.pixilart.com/b7b1795a2d5820c.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "https://i.pinimg.com/originals/3f/c7/ed/3fc7ed6289ece464ebf188cdc9e7e036.png",
+      "image": "https://art.pixilart.com/b7b1795a2d5820c.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
@@ -19,12 +19,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "https://images.alphacoders.com/109/1099923.jpg",
+        "foregroundImage": "https://art.pixilart.com/b7b1795a2d5820c.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "https://art.pixilart.com/b7b1795a2d5820c.png"
     }
   }
 }

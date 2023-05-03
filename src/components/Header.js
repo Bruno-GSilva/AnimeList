@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { ModalInfo } from "./Modals/ModalInfo";
+import { Menu } from "./Modals/Menu";
 
 export default function Header() {
   const [options, setOpitions] = useState(false)
@@ -38,7 +38,7 @@ export default function Header() {
           />
         </Pressable>
       </View>
-      <ModalInfo open={options}/>
+      <Menu open={options}/>
     </View>
   );
 }

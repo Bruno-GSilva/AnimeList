@@ -13,7 +13,7 @@ export function CardHorizontal(props) {
       <Pressable
         className="h-full w-1/2 rounded-2xl overflow-hidden scale-90 border-2 border-sky-500 active:border-red-500"
         onLongPress={() => setDeleteCard(!DeleteCard)}>
-        <Image className="flex-1" source={{ uri: props.url }}></Image>
+        <Image className="flex-1" source={{ uri: props.url?props.url:'https://pt.apkshki.com/storage/12708/icon_63d4e34c0e569_12708_w256.png'}}></Image>
         <ModalDelete open={DeleteCard} />
       </Pressable>
       {/* Informações do Card */}
@@ -36,10 +36,10 @@ export function CardHorizontal(props) {
 
           <Text className="text-sm text-white" numberOfLines={1}>
             Status:{" "}
-            {props.status === "Complete" ? (
-              <Text className="text-green-500">{props.status}</Text>
+            {props.status === "FINISHED" ? (
+              <Text className="text-green-500">Completo</Text>
             ) : (
-              <Text className="text-yellow-500">{props.status}</Text>
+              <Text className="text-yellow-500">Em Andamento</Text>
             )}
           </Text>
           <Text className="text-sm text-white" numberOfLines={1}>

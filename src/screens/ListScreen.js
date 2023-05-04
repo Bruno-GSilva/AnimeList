@@ -82,12 +82,9 @@ export default function ListScreen() {
                 );
               })
             ) : (
-                <Image
-                  source={require('./totoro-unscreen.gif')}
-                  className="opacity-50"
-                  resizeMode={'contain'}
-                />
-            )}
+                  <CardHorizontal/>
+                )
+            }
           </ScrollView>
         </View>
       </View>

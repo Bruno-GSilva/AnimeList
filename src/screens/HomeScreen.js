@@ -1,18 +1,20 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import Header from "../components/Header";
 import { CardVertical } from "../components/Cards/CardVertical";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 export default function HomeScreen() {
+  const { navigate } = useNavigation();
 
   const [animeListPage1, setAnimeListPage1] = useState([]);
   const [animeListPage2, setAnimeListPage2] = useState([]);
   const [animeListPage3, setAnimeListPage3] = useState([]);
 
   const fetchAnimeList = async (page, setState) => {
-    const response = await axios.post('https://graphql.anilist.co/', {
+    const response = await axios.post("https://graphql.anilist.co/", {
       query: `
         query ($page: Int, $perPage: Int) {
           Page (page: $page, perPage: $perPage) {
@@ -47,7 +49,6 @@ export default function HomeScreen() {
     fetchAnimeList(3, setAnimeListPage3);
   }, []);
 
-
   return (
     <View className="flex-1 items-center bg-black">
       <Header />
@@ -58,9 +59,7 @@ export default function HomeScreen() {
           </Text>
           <View className="flex-row scale-90">
             <ScrollView horizontal>
-              {animeListPage2.map((anime) => (
-                <CardVertical key={anime.id} anime={anime} />
-              ))}
+              {animeListPage2.map((anime) => <CardVertical key={anime.id} anime={anime} press={()=>navigate('Anime')}/>)}
             </ScrollView>
           </View>
           <Text className="px-7 text-2xl font-bold text-white">
@@ -69,13 +68,11 @@ export default function HomeScreen() {
           <View className="flex-row scale-90">
             <ScrollView horizontal>
               {animeListPage1.map((anime) => (
-                <CardVertical key={anime.id} anime={anime}/>
+                <CardVertical key={anime.id} anime={anime} />
               ))}
             </ScrollView>
           </View>
-          <Text className="px-7 text-2xl font-bold text-white">
-            Populares
-          </Text>
+          <Text className="px-7 text-2xl font-bold text-white">Populares</Text>
           <View className="flex-row scale-90">
             <ScrollView horizontal>
               {animeListPage3.map((anime) => (

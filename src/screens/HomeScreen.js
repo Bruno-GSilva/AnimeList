@@ -5,6 +5,7 @@ import { CardVertical } from "../components/Cards/CardVertical";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import { Pagination } from "../components/Modals/Pagination";
 
 export default function HomeScreen() {
   const { navigate } = useNavigation();
@@ -59,7 +60,9 @@ export default function HomeScreen() {
           </Text>
           <View className="flex-row scale-90">
             <ScrollView horizontal>
-              {animeListPage2.map((anime) => <CardVertical key={anime.id} anime={anime} press={()=>navigate('Anime')}/>)}
+              {animeListPage2.map((anime) => (
+                <CardVertical key={anime.id} anime={anime} />
+              ))}
             </ScrollView>
           </View>
           <Text className="px-7 text-2xl font-bold text-white">
@@ -79,7 +82,9 @@ export default function HomeScreen() {
                 <CardVertical key={anime.id} anime={anime} />
               ))}
             </ScrollView>
+          <Pagination />
           </View>
+
         </ScrollView>
       </View>
     </View>

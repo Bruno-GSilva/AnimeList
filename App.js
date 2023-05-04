@@ -1,17 +1,15 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import StackNavigation from "./routes/StackNavigation";
-import firebase from "./src/config/firebase";
-// import { GlobalContext } from "./src/components/Contexts/GlobalContext";
-// import { DataUser } from "./src/components/Contexts/DataUserContext";
+import { GlobalContext } from "./src/components/Contexts/GlobalContext";
+import {ListaContext}  from "./src/components/Contexts/ListaContext";
 
 export default function App() {
-
   return (
-    // <GlobalContext.Provider value={{ DataUser}}>
+    <GlobalContext.Provider value={ListaContext}>
       <NavigationContainer>
-        <StackNavigation/>
+        <StackNavigation />
       </NavigationContainer>
-    // </GlobalContext.Provider>
+    </GlobalContext.Provider>
   );
 }

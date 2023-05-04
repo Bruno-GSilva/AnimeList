@@ -4,7 +4,7 @@ import { ButtonCategory } from "../components/Buttons/ButtonCategory";
 
 export function AnimeScreen() {
   return (
-    <View className="-z-10 flex-1 items-center bg-black">
+    <View className="z-10 flex-1 items-center bg-black">
       <Header />
       <View className="-z-10 w-full h-full bg-slate-700">
         <View className="w-full flex-row justify-around items-center p-5">

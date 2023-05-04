@@ -1,13 +1,14 @@
 import React from "react";
-import { Alert, Image, Pressable, Text, View } from "react-native";
+import { Alert, Image, Modal, Pressable, Text, View } from "react-native";
+import { AnimeScreen } from "../../screens/AnimeScreen";
+import { Pagination } from "../Modals/Pagination";
 
 export function CardVertical({ anime, press }) {
   const { title, genres, episodes, coverImage } = anime;
 
   return (
     <Pressable
-      className="w-48 h-80 mx-1  flex-col items-center  rounded-3xl bg-black border-2 border-amber-500 active:border-white"
-      onPress={press ? press : () => Alert.alert(`${title.romaji} \n adicionado`)}>
+      className="w-48 h-80 mx-1  flex-col items-center  rounded-3xl bg-black border-2 border-amber-500 active:border-white">
       <View className="h-40 w-40 rounded-2xl my-4 border-2 border-sky-500 overflow-hidden">
         <Image
           className="flex-1"

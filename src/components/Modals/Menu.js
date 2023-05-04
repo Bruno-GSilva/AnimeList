@@ -12,9 +12,9 @@ export function Menu({ open }) {
         <Text className="mt-6 text-base font-semibold text-black">
           Minhas Lista
         </Text>
-        <ButtonCategory text={'Assistindo'} className="border-sky-500 shadow-sky-500 active:bg-sky-500" />
-        <ButtonCategory text={'Concluido'} className="border-green-500 shadow-green-500 active:bg-green-500" />
-        <ButtonCategory text={'Abandonado'} className="border-red-500 shadow-red-500 active:bg-red-500" />
+        <ButtonCategory text={'Assistindo'} className="border-sky-500 shadow-sky-500 active:bg-sky-500" press={()=> navigate('Watching')}/>
+        <ButtonCategory text={'Concluido'} className="border-green-500 shadow-green-500 active:bg-green-500" press={()=> navigate('Complete')}/>
+        <ButtonCategory text={'Abandonado'} className="border-red-500 shadow-red-500 active:bg-red-500" press={()=> navigate('Abandoned')}/>
         <ButtonCategory text={'Pretendo Assistir'} className="border-amber-500 shadow-amber-500 active:bg-amber-500" press={()=> navigate('List')}/>
       </View>
     );

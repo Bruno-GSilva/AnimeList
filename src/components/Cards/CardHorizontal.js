@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Image, Pressable, Text, View} from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import { ModalDelete } from "../Modals/ModalDelete";
 
-export function CardHorizontal(props) {
+export function CardHorizontal({ anime }) {
+  const { title, genres, episodes, coverImage, status } = anime;
+
   const [DeleteCard, setDeleteCard] = useState(false);
 
   return (
@@ -13,7 +15,13 @@ export function CardHorizontal(props) {
       <Pressable
         className="h-full w-1/2 rounded-2xl overflow-hidden scale-90 border-2 border-sky-500 active:border-red-500"
         onLongPress={() => setDeleteCard(!DeleteCard)}>
-        <Image className="flex-1" source={{ uri: props.url?props.url:'https://pt.apkshki.com/storage/12708/icon_63d4e34c0e569_12708_w256.png'}}></Image>
+        <Image
+          className="flex-1"
+          source={{
+            uri: coverImage.large
+              ? coverImage.large
+              : "https://pt.apkshki.com/storage/12708/icon_63d4e34c0e569_12708_w256.png",
+          }}></Image>
         <ModalDelete open={DeleteCard} />
       </Pressable>
       {/* Informações do Card */}
@@ -30,26 +38,26 @@ export function CardHorizontal(props) {
             <Text
               className="text-sm text-white font-bold mr-2"
               numberOfLines={1}>
-              {props.titule}
+              {title.native}
             </Text>
           </View>
 
           <Text className="text-sm text-white" numberOfLines={1}>
             Status:{" "}
-            {props.status === "FINISHED" ? (
+            {status === "FINISHED" ? (
               <Text className="text-green-500">Completo</Text>
             ) : (
               <Text className="text-yellow-500">Em Andamento</Text>
             )}
           </Text>
           <Text className="text-sm text-white" numberOfLines={1}>
-            Genero: <Text>{props.genero}</Text>
+            genero: <Text>{genres}</Text>
           </Text>
           <Text className="text-sm text-white" numberOfLines={1}>
-            Lançamento: <Text>{props.launch}</Text>
+            Lançamento: <Text>{"null"}</Text>
           </Text>
           <Text className="text-sm text-white" numberOfLines={1}>
-            Episodios: <Text>{props.eps}</Text>
+            Episodios: <Text>{episodes}</Text>
           </Text>
         </View>
       </View>

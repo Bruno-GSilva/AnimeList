@@ -4,11 +4,9 @@ import Header from "../components/Header";
 import { CardVertical } from "../components/Cards/CardVertical";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigation } from "@react-navigation/native";
 import { Pagination } from "../components/Modals/Pagination";
 
 export default function HomeScreen() {
-  const { navigate } = useNavigation();
 
   const [animeListPage1, setAnimeListPage1] = useState([]);
   const [animeListPage2, setAnimeListPage2] = useState([]);
@@ -28,6 +26,7 @@ export default function HomeScreen() {
               }
               description
               genres
+              status
               episodes
               coverImage {
                 large
@@ -59,9 +58,12 @@ export default function HomeScreen() {
             Lançamentos
           </Text>
           <View className="flex-row scale-90">
-            <ScrollView horizontal>
+            <ScrollView horizontal contentOffset={{x:100, y:0}}>
               {animeListPage2.map((anime) => (
-                <CardVertical key={anime.id} anime={anime} />
+                <CardVertical
+                  key={anime.id}
+                  anime={anime}
+                />
               ))}
             </ScrollView>
           </View>
@@ -69,7 +71,7 @@ export default function HomeScreen() {
             Animes da Temporada
           </Text>
           <View className="flex-row scale-90">
-            <ScrollView horizontal>
+            <ScrollView horizontal contentOffset={{x:100, y:0}}>
               {animeListPage1.map((anime) => (
                 <CardVertical key={anime.id} anime={anime} />
               ))}
@@ -77,14 +79,12 @@ export default function HomeScreen() {
           </View>
           <Text className="px-7 text-2xl font-bold text-white">Populares</Text>
           <View className="flex-row scale-90">
-            <ScrollView horizontal>
+            <ScrollView horizontal contentOffset={{x:100, y:0}}>
               {animeListPage3.map((anime) => (
                 <CardVertical key={anime.id} anime={anime} />
               ))}
             </ScrollView>
-          <Pagination />
           </View>
-
         </ScrollView>
       </View>
     </View>

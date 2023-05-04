@@ -9,8 +9,8 @@ export function Menu({ open }) {
   if (open) {
     return (
       <View className="z-20 absolute w-1/2 h-80 top-14 left-1 rounded-2xl border-2 border-amber-600 bg-slate-500 items-center justify-center">
-        <Text className="mt-6 text-base font-semibold text-black">
-          Minhas Lista
+        <Text className="mt-6 text-base font-bold text-black">
+         - Minhas Lista -
         </Text>
         <ButtonCategory text={'Assistindo'} className="border-sky-500 shadow-sky-500 active:bg-sky-500" press={()=> navigate('Watching')}/>
         <ButtonCategory text={'Concluido'} className="border-green-500 shadow-green-500 active:bg-green-500" press={()=> navigate('Complete')}/>

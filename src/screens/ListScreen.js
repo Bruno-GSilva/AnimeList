@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
+import axios from "axios";
+
 import Header from "../components/Header";
 import { CardHorizontal } from "../components/Cards/CardHorizontal";
 import { ButtonCategory } from "../components/Buttons/ButtonCategory";
 import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
-import axios from "axios";
-import { Pagination } from "../components/Modals/Pagination";
 
 export default function ListScreen() {
   const [dataAnime, setDataAnime] = useState([]);
@@ -54,7 +54,7 @@ export default function ListScreen() {
       <View className="-z-10 flex-1 rounded-3xl bg-slate-700 p-2 mx-1">
         <View className="flex-row justify-between items-center p-5">
           <ButtonCategory text={"Pretendo Assistir"} className="border-amber-500 shadow-amber-500 active:bg-amber-500"/>
-          <ButtonCategory text={"Adicionar"} className="border-black bg-yellow-500 active:border-white" press={() => setBuscar(!openBuscar)}/>
+          <ButtonCategory text={"Adicionar"} className="border-black bg-amber-500 active:border-white active:bg-black" press={() => setBuscar(!openBuscar)}/>
         </View>
         <View className="-z-0 flex-1 items-center">
           <ScrollView>

@@ -1,18 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import {
-  Pressable,
-  Text,
-  View,
-  Modal,
-  ImageBackground,
-  Alert,
-} from "react-native";
-import { ButtonPrimary } from "../components/Buttons/ButtonPrimary";
-import { Input } from "../components/InputText";
-import Icon from "react-native-vector-icons/FontAwesome";
+import {Pressable,Text,View,ImageBackground,Alert} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { GlobalContext } from "../components/Contexts/GlobalContext";
+import Icon from "react-native-vector-icons/FontAwesome";
+
+import { ButtonPrimary } from "../components/Buttons/ButtonPrimary";
+import { Input } from "../components/InputText";
 
 export default function LoginScreen({ navigation }) {
   const { navigate } = useNavigation();
@@ -24,8 +18,8 @@ export default function LoginScreen({ navigation }) {
     Alert.alert(err);
   };
 
-  const context = useContext(GlobalContext)
-  const {lista1, lista2, lista3, lista4} = context[0]
+  // const context = useContext(GlobalContext)
+  // const {lista1, lista2, lista3, lista4} = context[0]
 
   function validation() {
     const auth = getAuth();

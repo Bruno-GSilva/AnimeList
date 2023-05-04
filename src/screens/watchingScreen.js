@@ -53,7 +53,7 @@ export default function WatchingScreen() {
       <View className="-z-10 flex-1 rounded-3xl bg-slate-700 p-2 mx-1">
         <View className="flex-row justify-between items-center p-5">
           <ButtonCategory text={"Assistindo"} className="border-sky-500 active:bg-sky-500 shadow-sky-500"/>
-          <ButtonCategory text={"Adicionar"} className="border-black bg-yellow-500 active:border-white" press={() => setBuscar(!openBuscar)}/>
+          <ButtonCategory text={"Adicionar"} className="border-black bg-amber-500 active:border-white active:bg-black" press={() => setBuscar(!openBuscar)}/>
         </View>
         <View className="-z-0 flex-1 items-center">
           <ScrollView>

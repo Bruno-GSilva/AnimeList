@@ -57,7 +57,21 @@ export default function CompleteScreen() {
         </View>
         <View className="-z-0 flex-1 items-center">
           <ScrollView>
-          {dataAnime.map((anime) => <CardHorizontal anime={anime} key={anime.id} />)}
+          {dataAnime?.length ? (
+              dataAnime.map((anime) => {
+                return (
+                  <CardHorizontal
+                    image={anime.coverImage.large}
+                    title={anime.title.romaji}
+                    genres={anime.genres}
+                    episodes={anime.episodes}
+                    key={anime.id}
+                  />
+                );
+              })
+            ) : (
+              <CardHorizontal/>
+            )}
           </ScrollView>
         </View>
       </View>

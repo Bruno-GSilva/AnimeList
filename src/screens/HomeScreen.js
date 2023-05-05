@@ -1,11 +1,9 @@
 import React from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import Header from "../components/Header";
 import { CardVertical } from "../components/Cards/CardVertical";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Pagination } from "../components/Modals/Pagination";
-
 export default function HomeScreen() {
 
   const [animeListPage1, setAnimeListPage1] = useState([]);

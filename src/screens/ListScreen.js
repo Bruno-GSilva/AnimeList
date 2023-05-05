@@ -50,15 +50,38 @@ export default function ListScreen() {
     <View className="-z-10 flex-1 items-center bg-black">
       <Header />
       <ModalAdicionar open={openBuscar} />
-      <Text className="-z-10 text-2xl font-bold text-white mb-5">Minha Lista</Text>
+      <Text className="-z-10 text-2xl font-bold text-white mb-5">
+        Minha Lista
+      </Text>
       <View className="-z-10 flex-1 rounded-3xl bg-slate-700 p-2 mx-1">
         <View className="flex-row justify-between items-center p-5">
-          <ButtonCategory text={"Pretendo Assistir"} className="border-amber-500 shadow-amber-500 active:bg-amber-500"/>
-          <ButtonCategory text={"Adicionar"} className="border-black bg-amber-500 active:border-white active:bg-black" press={() => setBuscar(!openBuscar)}/>
+          <ButtonCategory
+            text={"Pretendo Assistir"}
+            className="border-amber-500 shadow-amber-500 active:bg-amber-500"
+          />
+          <ButtonCategory
+            text={"Adicionar"}
+            className="border-black bg-amber-500 active:border-white active:bg-black"
+            press={() => setBuscar(!openBuscar)}
+          />
         </View>
         <View className="-z-0 flex-1 items-center">
           <ScrollView>
-            {dataAnime.map((anime) => <CardHorizontal anime={anime} key={anime.id} />)}
+            {dataAnime?.length ? (
+              dataAnime.map((anime) => {
+                return (
+                  <CardHorizontal
+                    image={anime.coverImage.large}
+                    title={anime.title.romaji}
+                    genres={anime.genres}
+                    episodes={anime.episodes}
+                    key={anime.id}
+                  />
+                );
+              })
+            ) : (
+              <CardHorizontal/>
+            )}
           </ScrollView>
         </View>
       </View>

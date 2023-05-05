@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {Pressable,Text,View,ImageBackground,Alert} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { GlobalContext } from "../components/Contexts/GlobalContext";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import { ButtonPrimary } from "../components/Buttons/ButtonPrimary";
@@ -13,11 +12,6 @@ export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(false);
-
-  const showAlert = (err) => {
-    Alert.alert(err);
-  };
-
   // const context = useContext(GlobalContext)
   // const {lista1, lista2, lista3, lista4} = context[0]
 
@@ -25,15 +19,13 @@ export default function LoginScreen({ navigation }) {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
+        // const user = userCredential.user;
         setUser(true);
-        // ...
       })
       .catch((error) => {
         setUser(false);
         const errorMessage = error.message;
-        showAlert(errorMessage)
+        Alert.alert(errorMessage)
       });
   }
 

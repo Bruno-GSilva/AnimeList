@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "myApp",
-    "slug": "myApp",
+    "name": "animedbolso",
+    "slug": "animedbolso",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "https://art.pixilart.com/b7b1795a2d5820c.png",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "https://art.pixilart.com/b7b1795a2d5820c.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.brunogsilva.myApp"
     },
     "web": {
       "favicon": "https://art.pixilart.com/b7b1795a2d5820c.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1a2b1dc9-4c34-4cc2-9591-2b129830511e"
+      }
     }
   }
 }

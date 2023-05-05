@@ -4,27 +4,25 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 import { ModalDelete } from "../Modals/ModalDelete";
 
-export function CardHorizontal({ anime }) {
-  const { title, genres, episodes, coverImage, status } = anime;
+export function CardHorizontal(props) {
+
 
   const [DeleteCard, setDeleteCard] = useState(false);
 
   return (
     <View className="flex-1 my-1 flex-row items-center justify-between rounded-3xl bg-black border-2 border-amber-500 overflow-hidden">
-      {/* Imagem do Card */}
       <Pressable
         className="h-full w-1/2 rounded-2xl overflow-hidden scale-90 border-2 border-sky-500 active:border-red-500"
         onLongPress={() => setDeleteCard(!DeleteCard)}>
         <Image
           className="flex-1"
           source={{
-            uri: coverImage.large
-              ? coverImage.large
+            uri: props.image
+              ? props.image
               : "https://pt.apkshki.com/storage/12708/icon_63d4e34c0e569_12708_w256.png",
-          }}></Image>
+          }}/>
         <ModalDelete open={DeleteCard} />
       </Pressable>
-      {/* Informações do Card */}
       <View className="h-full w-1/2 rounded-2xl p-2">
         <View className="flex-1 flex-row items-center justify-between">
           <Pressable className="flex-1 justify-center flex-row px-2 py-1 border-2 border-amber-500 rounded-xl active:border-white overflow-hidden">
@@ -38,26 +36,26 @@ export function CardHorizontal({ anime }) {
             <Text
               className="text-sm text-white font-bold mr-2"
               numberOfLines={1}>
-              {title.native}
+              {props.title?props.title:'Nome do Anime'}
             </Text>
           </View>
 
           <Text className="text-sm text-white" numberOfLines={1}>
-            Status:{" "}
-            {status === "FINISHED" ? (
+            props.status:{" "}
+            {props.status === "FINISHED" ? (
               <Text className="text-green-500">Completo</Text>
             ) : (
               <Text className="text-yellow-500">Em Andamento</Text>
             )}
           </Text>
           <Text className="text-sm text-white" numberOfLines={1}>
-            genero: <Text>{genres}</Text>
+            genero: <Text>{props.genres?props.genres:'???'}</Text>
           </Text>
           <Text className="text-sm text-white" numberOfLines={1}>
             Lançamento: <Text>{"null"}</Text>
           </Text>
           <Text className="text-sm text-white" numberOfLines={1}>
-            Episodios: <Text>{episodes}</Text>
+            Episodios: <Text>{props.episodes}</Text>
           </Text>
         </View>
       </View>

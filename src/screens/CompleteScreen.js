@@ -46,11 +46,11 @@ export default function CompleteScreen() {
   }, []);
 
   return (
-    <View className="-z-10 flex-1 items-center bg-black">
+    <View className="z-10 flex-1 items-center bg-black">
       <Header />
       <ModalAdicionar open={openBuscar} />
-      <Text className="-z-10 text-2xl font-bold text-white mb-5">Minha Lista</Text>
-      <View className="-z-10 flex-1 rounded-3xl bg-slate-700 p-2 mx-1">
+      <Text className="z-10 text-2xl font-bold text-white mb-5">Minha Lista</Text>
+      <View className="z-10 flex-1 rounded-3xl bg-slate-700 p-2 mx-1">
         <View className="flex-row justify-between items-center p-5">
           <ButtonCategory text={"Concluido"} className="border-green-500 active:bg-green-500 shadow-green-500"/>
           <ButtonCategory text={"Adicionar"} className="border-black bg-amber-500 active:border-white active:bg-black" press={() => setBuscar(!openBuscar)}/>

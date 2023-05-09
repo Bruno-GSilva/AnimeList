@@ -8,7 +8,7 @@ export default function Header() {
 
   const { navigate } = useNavigation();
   return (
-    <View className="w-full m-4 border-b-2 border-slate-700 p-4 flex-row justify-between items-center bg-black">
+    <View className="z-30 w-full m-4 border-b-2 border-slate-700 p-4 flex-row justify-between items-center bg-black">
       <View className="z-50 flex-row items-center">
         <Pressable className="w-20 h-20 border-2 rounded-full border-amber-500 overflow-hidden mr-5 active:border-white" onPress={()=>setOpitions(!options)}>
           <Image

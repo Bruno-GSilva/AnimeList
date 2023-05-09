@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from "react";
 import { Pressable } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export function ModalDelete({ open }) {
 

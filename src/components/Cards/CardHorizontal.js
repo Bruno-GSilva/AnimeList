@@ -6,13 +6,12 @@ import { ModalDelete } from "../Modals/ModalDelete";
 
 export function CardHorizontal(props) {
 
-
   const [DeleteCard, setDeleteCard] = useState(false);
 
   return (
-    <View className="flex-1 my-1 flex-row items-center justify-between rounded-3xl bg-black border-2 border-amber-500 overflow-hidden">
+    <View className="flex-1 my-1 flex-row items-center justify-between rounded-md bg-black border-2 border-amber-500 overflow-hidden">
       <Pressable
-        className="h-full w-1/2 rounded-2xl overflow-hidden scale-90 border-2 border-sky-500 active:border-red-500"
+        className="h-full w-1/2 rounded-md overflow-hidden scale-90 border-2 border-sky-500 active:border-red-500"
         onLongPress={() => setDeleteCard(!DeleteCard)}>
         <Image
           className="flex-1"
@@ -31,7 +30,7 @@ export function CardHorizontal(props) {
             </Text>
           </Pressable>
         </View>
-        <View className="flex-1 pt-4 justify-center gap-1">
+        <View className="flex-1 pt-2 justify-center gap-1">
           <View className="w-40">
             <Text
               className="text-sm text-white font-bold mr-2"
@@ -41,7 +40,7 @@ export function CardHorizontal(props) {
           </View>
 
           <Text className="text-sm text-white" numberOfLines={1}>
-            props.status:{" "}
+            status:{" "}
             {props.status === "FINISHED" ? (
               <Text className="text-green-500">Completo</Text>
             ) : (

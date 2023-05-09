@@ -10,7 +10,7 @@ import ListScreen from "../src/screens/ListScreen";
 import CompleteScreen from "../src/screens/CompleteScreen";
 import AbandonedScreen from "../src/screens/AbandonedScreen";
 import WatchingScreen from "../src/screens/watchingScreen";
-
+// paginas de animes
 import { Pagination } from "../src/components/Modals/Pagination";
 
 const Stack = createStackNavigator();
@@ -18,7 +18,7 @@ const Stack = createStackNavigator();
 function StackNavigation() {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="Home"
       screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />

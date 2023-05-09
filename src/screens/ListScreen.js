@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { Alert, ScrollView, Text, View } from "react-native";
 import axios from "axios";
 
 import Header from "../components/Header";
@@ -7,53 +7,57 @@ import { CardHorizontal } from "../components/Cards/CardHorizontal";
 import { ButtonCategory } from "../components/Buttons/ButtonCategory";
 import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
 
-export default function ListScreen() {
+export default function ListScreen({ route }) {
+  const getId = route.params;
+
   const [dataAnime, setDataAnime] = useState([]);
   const [openBuscar, setBuscar] = useState(false);
-
-  const animeCard = async (query) => {
+  
+  const animeCard = async (id) => {
     const response = await axios.post("https://graphql.anilist.co", {
       query: `
-        query ($search: String) {
-          Page(perPage: 10) {
-            media(search: $search, type: ANIME, isAdult:false) {
-              id
-              title {
-                romaji
-                english
-                native
-              }
-              description(asHtml: false)
-              
-              genres
-              status
-              episodes
-              coverImage {
-                large
-              }
-            }
+      query ($id: Int) {
+        Media(id: $id, type: ANIME) {
+          id
+          title {
+            romaji
+            english
+            native
+          }
+          description(asHtml: false)
+          genres
+          status
+          episodes
+          coverImage {
+            large
           }
         }
-      `,
+      }
+    `,
       variables: {
-        search: query,
+        id: id,
       },
     });
-    setDataAnime(response.data.data.Page.media);
+    setDataAnime([response.data.data.Media]);
   };
 
+const visual = () =>{
+  dataAnime.map(item => console.log(item.title.romaji))
+}
+
   useEffect(() => {
-    animeCard();
-  }, []);
+    animeCard(getId);
+    visual()
+  }, [getId]);
 
   return (
-    <View className="-z-10 flex-1 items-center bg-black">
+    <View className="z-10 flex-1 items-center bg-black">
       <Header />
       <ModalAdicionar open={openBuscar} />
-      <Text className="-z-10 text-2xl font-bold text-white mb-5">
+      <Text className="z-10 text-2xl font-bold text-white mb-5">
         Minha Lista
       </Text>
-      <View className="-z-10 flex-1 rounded-3xl bg-slate-700 p-2 mx-1">
+      <View className="z-10 flex-1 rounded-3xl bg-slate-700 p-2 mx-1">
         <View className="flex-row justify-between items-center p-5">
           <ButtonCategory
             text={"Pretendo Assistir"}
@@ -80,7 +84,7 @@ export default function ListScreen() {
                 );
               })
             ) : (
-              <CardHorizontal/>
+              <CardHorizontal />
             )}
           </ScrollView>
         </View>

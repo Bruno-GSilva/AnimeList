@@ -1,18 +1,26 @@
 import React from "react";
-import { Image, Pressable, Text, View } from "react-native";
+import { FlatList, Image, Pressable, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 export function CardVertical({ anime }) {
-
   const { navigate } = useNavigation();
-  
-  const { title, genres, episodes, coverImage, status , description} = anime;
+
+  const { title, genres, episodes, coverImage, status, description } = anime;
 
   return (
     <Pressable
-      className="w-48 h-80 mx-1  flex-col items-center  rounded-3xl bg-black border-2 border-amber-500 active:border-white"
-      onPress={() => navigate("Pagination", {title, genres, episodes, coverImage , status, description})}>
-      <View className="h-40 w-40 rounded-2xl my-4 border-2 border-sky-500 overflow-hidden">
+      className="shadow-md shadow-black w-44 h-80 ml-2 flex-col items-center  rounded-md bg-black border-2 border-amber-500 active:border-white scale-y-90"
+      onPress={() =>
+        navigate("Pagination", {
+          title,
+          genres,
+          episodes,
+          coverImage,
+          status,
+          description,
+        })
+      }>
+      <View className="h-40 w-40 rounded-md my-4 border-2 border-sky-500 overflow-hidden scale-90">
         <Image
           className="flex-1"
           source={{
@@ -27,7 +35,7 @@ export function CardVertical({ anime }) {
           {title.native ? title.native : "Titulo"}
         </Text>
         <Text className="text-base font-semibold text-white" numberOfLines={1}>
-          {genres}
+          {' '+ genres + ", "}
         </Text>
         <Text className="text-base font-semibold text-white" numberOfLines={1}>
           Eps: {episodes ? episodes : "Em Andamento"}

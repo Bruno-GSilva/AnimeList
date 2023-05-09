@@ -1,9 +1,12 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
-import Header from "../components/Header";
-import { CardVertical } from "../components/Cards/CardVertical";
 import { useState, useEffect } from "react";
+import { Text, Image, ScrollView, View, Pressable } from "react-native";
 import axios from "axios";
+
+import Header from "../components/Header";
+import { Category } from "../components/Category";
+import { ButtonCategory } from "../components/Buttons/ButtonCategory";
+
 export default function HomeScreen() {
 
   const [animeListPage1, setAnimeListPage1] = useState([]);
@@ -50,39 +53,21 @@ export default function HomeScreen() {
   return (
     <View className="flex-1 items-center bg-black">
       <Header />
-      <View className="-z-10 flex-1 rounded-3xl bg-slate-700 py-2 mx-1">
+      <View className="z-10 flex-1 rounded-3xl bg-slate-700 py-2 mx-1">
         <ScrollView>
-          <Text className="px-7 text-2xl font-bold text-white">
-            Lançamentos
-          </Text>
-          <View className="flex-row scale-90">
-            <ScrollView horizontal contentOffset={{x:100, y:0}}>
-              {animeListPage2.map((anime) => (
-                <CardVertical
-                  key={anime.id}
-                  anime={anime}
-                />
-              ))}
-            </ScrollView>
+
+          <Pressable className='h-[480px] justify-between items-center mx-6 my-4 rounded-2xl shadow-lg shadow-black bg-black border active:border-white'>
+            <Text className='w-full text-3xl mt-10 px-6 font-extrabold text-white' numberOfLines={1}>Nome do Anime</Text>
+            <Image source={{uri:'https://pt.apkshki.com/storage/12708/icon_63d4e34c0e569_12708_w256.png'}} resizeMode="contain" className='-z-10 top-0 left-0 h-full w-full absolute'/>
+          <View className='flex-row'>
+          <ButtonCategory text={'+ Minha Lista'} className='z-30 m-4 active:border-white bg-amber-500 border-0'/>
+            <ButtonCategory text={'Saiba Mais'} className=' z-30 m-4 active:border-white h-10 w-32'/>
           </View>
-          <Text className="px-7 text-2xl font-bold text-white">
-            Animes da Temporada
-          </Text>
-          <View className="flex-row scale-90">
-            <ScrollView horizontal contentOffset={{x:100, y:0}}>
-              {animeListPage1.map((anime) => (
-                <CardVertical key={anime.id} anime={anime} />
-              ))}
-            </ScrollView>
-          </View>
-          <Text className="px-7 text-2xl font-bold text-white">Populares</Text>
-          <View className="flex-row scale-90">
-            <ScrollView horizontal contentOffset={{x:100, y:0}}>
-              {animeListPage3.map((anime) => (
-                <CardVertical key={anime.id} anime={anime} />
-              ))}
-            </ScrollView>
-          </View>
+          </Pressable>
+
+          <Category arr={animeListPage3} text={'Lançamentos'}/>
+          <Category arr={animeListPage2} text={'Animes da Temporada'}/>
+          <Category arr={animeListPage1} text={'Temporada Passada'}/>
         </ScrollView>
       </View>
     </View>

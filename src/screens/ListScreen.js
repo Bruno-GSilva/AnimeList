@@ -8,47 +8,23 @@ import { ButtonCategory } from "../components/Buttons/ButtonCategory";
 import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
 
 export default function ListScreen({ route }) {
-  const getId = route.params;
-
-  const [dataAnime, setDataAnime] = useState([]);
-  const [openBuscar, setBuscar] = useState(false);
   
-  const animeCard = async (id) => {
-    const response = await axios.post("https://graphql.anilist.co", {
-      query: `
-      query ($id: Int) {
-        Media(id: $id, type: ANIME) {
-          id
-          title {
-            romaji
-            english
-            native
-          }
-          description(asHtml: false)
-          genres
-          status
-          episodes
-          coverImage {
-            large
-          }
-        }
-      }
-    `,
-      variables: {
-        id: id,
-      },
-    });
-    setDataAnime([response.data.data.Media]);
-  };
+  const anime = { title, genres, episodes } =
+    route.params;
 
-const visual = () =>{
-  dataAnime.map(item => console.log(item.title.romaji))
-}
+  const [openBuscar, setOpenBuscar] = useState(false);
+  const [DataAnime, setDataAnime] = useState([]);
 
   useEffect(() => {
-    animeCard(getId);
-    visual()
-  }, [getId]);
+    adicionarItens()
+    console.log("Lista atualizada:", DataAnime);
+  }, [anime]);
+
+  const adicionarItens = () => {
+    const novosItens = [anime];
+    const novaLista = DataAnime.concat(novosItens);
+    setDataAnime(novaLista);
+  };
 
   return (
     <View className="z-10 flex-1 items-center bg-black">
@@ -66,26 +42,11 @@ const visual = () =>{
           <ButtonCategory
             text={"Adicionar"}
             className="border-black bg-amber-500 active:border-white active:bg-black"
-            press={() => setBuscar(!openBuscar)}
+            press={() => setOpenBuscar(!openBuscar)}
           />
         </View>
         <View className="-z-0 flex-1 items-center">
           <ScrollView>
-            {dataAnime?.length ? (
-              dataAnime.map((anime) => {
-                return (
-                  <CardHorizontal
-                    image={anime.coverImage.large}
-                    title={anime.title.romaji}
-                    genres={anime.genres}
-                    episodes={anime.episodes}
-                    key={anime.id}
-                  />
-                );
-              })
-            ) : (
-              <CardHorizontal />
-            )}
           </ScrollView>
         </View>
       </View>

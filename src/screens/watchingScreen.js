@@ -23,7 +23,6 @@ export default function WatchingScreen() {
                 native
               }
               description(asHtml: false)
-              
               genres
               status
               episodes
@@ -74,7 +73,8 @@ export default function WatchingScreen() {
                       title={anime.title.romaji}
                       genres={anime.genres}
                       episodes={anime.episodes}
-                      key={anime.id}
+                      status={anime.status}
+                      key={anime.id}                      
                     />
                   );
                 })

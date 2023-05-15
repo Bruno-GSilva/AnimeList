@@ -56,11 +56,11 @@ export default function HomeScreen() {
       <View className="z-10 flex-1 rounded-3xl bg-slate-700 py-2 mx-1">
         <ScrollView>
 
-          <Pressable className='h-[480px] justify-between items-center mx-6 my-4 rounded-2xl shadow-lg shadow-black bg-black border active:border-white'>
-            <Text className='w-full text-3xl mt-10 px-6 font-extrabold text-white' numberOfLines={1}>Nome do Anime</Text>
-            <Image source={{uri:'https://pt.apkshki.com/storage/12708/icon_63d4e34c0e569_12708_w256.png'}} resizeMode="contain" className='-z-10 top-0 left-0 h-full w-full absolute'/>
+          <Pressable className='h-[480px] justify-between items-center mx-6 my-4 rounded-2xl shadow-lg shadow-black bg-black border active:border-white overflow-hidden'>
+            <Text className='w-full text-3xl mt-10 px-6 font-extrabold text-white opacity-0' numberOfLines={1}>Nome do Anime</Text>
+            <Image source={{uri:'https://e1.pxfuel.com/desktop-wallpaper/51/649/desktop-wallpaper-mashle-magic-and-muscles-vol-1-komoto-hajime-9781974719297-books-mashle-magic-and-muscles.jpg'}} resizeMode="cover" className='-z-10 top-0 left-0 h-full w-full absolute'/>
           <View className='flex-row'>
-          <ButtonCategory text={'+ Minha Lista'} className='z-30 m-4 active:border-white bg-amber-500 border-0'/>
+          <ButtonCategory text={'+ Minha Lista'} className='z-30 m-4 border-amber-500 active:border-white bg-black'/>
             <ButtonCategory text={'Saiba Mais'} className=' z-30 m-4 active:border-white h-10 w-32'/>
           </View>
           </Pressable>

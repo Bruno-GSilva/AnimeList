@@ -17,8 +17,7 @@ import axios from "axios";
 export function ModalAdicionar({ open }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const [getId, SetId] = useState(123);
-
+  const [getId, SetId] = useState([123,23,1,456]);
   const { navigate } = useNavigation();
 
   const searchAnime = async (query) => {
@@ -34,6 +33,7 @@ export function ModalAdicionar({ open }) {
                 native
               }
               description(asHtml: false)
+              status
               genres
               episodes
               coverImage {
@@ -74,15 +74,40 @@ export function ModalAdicionar({ open }) {
           value={query}
           onChangeText={handleInputChange}
         />
-        <FlatList
+        {
+          results.map( anime =>{
+            return(
+              <Pressable
+                key={anime.id}
+                onPress={() => {
+                  SetId(anime.id);
+                  navigate("List", { getId } );
+                }}
+                className="flex-row items-center p-2 mb-2 border-2 border-black overflow-hidden rounded-xl active:border-amber-500">
+                <Image
+                  className="w-32 h-32 rounded-xl mr-2"
+                  source={{ uri: anime.coverImage.large }}
+                  alt={anime.title.romaji}
+                />
+                <Text
+                  className="w-32 ml-2 my-2 text-base text-white font-semibold"
+                  numberOfLines={3}>
+                  {anime.title.romaji}
+                </Text>
+              </Pressable>
+            )
+          })
+        }
+
+        {/* <FlatList
           data={results}
           renderItem={(anime) => {
             return (
               <Pressable
-              key={anime.item.id}
-              onPress={() => {
-                  SetId(anime.item.id)
-                  navigate("List", getId);
+                key={anime.item.id}
+                onPress={() => {
+                  SetId(anime.item.id);
+                  navigate("List", { results });
                 }}
                 className="flex-row items-center p-2 mb-2 border-2 border-black overflow-hidden rounded-xl active:border-amber-500">
                 <Image
@@ -98,7 +123,7 @@ export function ModalAdicionar({ open }) {
               </Pressable>
             );
           }}
-        />
+        /> */}
       </View>
     );
   }

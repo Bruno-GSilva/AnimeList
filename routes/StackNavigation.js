@@ -12,13 +12,13 @@ import AbandonedScreen from "../src/screens/AbandonedScreen";
 import WatchingScreen from "../src/screens/watchingScreen";
 // paginas de animes
 import { Pagination } from "../src/components/Modals/Pagination";
-
+// ContextLists
 const Stack = createStackNavigator();
 
 function StackNavigation() {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Login"
       screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />

@@ -30,15 +30,15 @@ export function CardVertical({ anime }) {
           }}
         />
       </View>
-      <View className="w-40 h-10">
+      <View className="w-40 h-10 items-center">
         <Text className="text-base font-semibold text-white" numberOfLines={1}>
-          {title.native ? title.native : "Titulo"}
+          {title.romaji ? title.romaji : "Titulo"}
         </Text>
         <Text className="text-base font-semibold text-white" numberOfLines={1}>
-          {' '+ genres + ", "}
+          {genres[0]}/{genres[1]}
         </Text>
         <Text className="text-base font-semibold text-white" numberOfLines={1}>
-          Eps: {episodes ? episodes : "Em Andamento"}
+          Terça-Feira
         </Text>
       </View>
     </Pressable>

@@ -2,10 +2,13 @@ import { Alert, Image, Pressable, ScrollView, Text, View } from "react-native";
 import Header from "../Header";
 import { ButtonCategory } from "../Buttons/ButtonCategory";
 import { CardMini } from "../Cards/CardMini";
+import { useNavigation } from "@react-navigation/native";
 
-export function Pagination({ route }) {
+export function Pagination({ route }) {''
   const { title, genres, episodes, coverImage, status, description } =
     route.params;
+
+  const {navigate} = useNavigation()
 
   return (
     <View className="z-10 flex-1 items-center bg-black">
@@ -56,7 +59,10 @@ export function Pagination({ route }) {
             </Text>
             <ButtonCategory
               text={"Adicionar"}
-              press={() => Alert.alert("Anime Adicionado")}
+              press={() => {
+                Alert.alert('Anime Adicionado')
+                navigate('List', { title, genres, episodes, coverImage, status, description })
+              }}
               className="w-full my-0 mt-2 bg-amber-500 border-black active:border-white active:bg-black"
             />
           </View>

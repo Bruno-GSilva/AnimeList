@@ -4,9 +4,11 @@ import { ButtonCategory } from "../Buttons/ButtonCategory";
 import { CardMini } from "../Cards/CardMini";
 import { useNavigation } from "@react-navigation/native";
 
-export function Pagination({ route }) {''
-  const { title, genres, episodes, coverImage, status, description } =
+export function Pagination({ route }) {
+  
+  const { title, genres, episodes, coverImage, status, description, id } =
     route.params;
+
 
   const {navigate} = useNavigation()
 
@@ -61,7 +63,7 @@ export function Pagination({ route }) {''
               text={"Adicionar"}
               press={() => {
                 Alert.alert('Anime Adicionado')
-                navigate('List', { title, genres, episodes, coverImage, status, description })
+                navigate('List', { title, genres, episodes, coverImage, status, description, id })
               }}
               className="w-full my-0 mt-2 bg-amber-500 border-black active:border-white active:bg-black"
             />

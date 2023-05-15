@@ -1,35 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { Alert, ScrollView, Text, View } from "react-native";
-import axios from "axios";
-
+import React, { useContext, useEffect } from "react";
+import { ScrollView, Text, View } from "react-native";
 import Header from "../components/Header";
 import { CardHorizontal } from "../components/Cards/CardHorizontal";
 import { ButtonCategory } from "../components/Buttons/ButtonCategory";
-import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
+import MyContext from "../components/Contexts/MyContext";
 
 export default function ListScreen({ route }) {
+  const contexto = useContext(MyContext)
+  const anime = { title, genres, episodes, coverImage, status, description } = route.params
   
-  const anime = { title, genres, episodes } =
-    route.params;
 
-  const [openBuscar, setOpenBuscar] = useState(false);
-  const [DataAnime, setDataAnime] = useState([]);
+  const { lista1, setLista1 }  = contexto
 
-  useEffect(() => {
-    adicionarItens()
-    console.log("Lista atualizada:", DataAnime);
-  }, [anime]);
+  const getAnime = (item) =>{
+    setLista1([...lista1, item])
+  }
 
-  const adicionarItens = () => {
-    const novosItens = [anime];
-    const novaLista = DataAnime.concat(novosItens);
-    setDataAnime(novaLista);
-  };
+  useEffect(()=>{
+    getAnime( anime )
+    lista1.map(item => console.log(item.status))
+  },[route.params])
 
+
+  
   return (
     <View className="z-10 flex-1 items-center bg-black">
       <Header />
-      <ModalAdicionar open={openBuscar} />
+      {/* <ModalAdicionar open={openBuscar} /> */}
       <Text className="z-10 text-2xl font-bold text-white mb-5">
         Minha Lista
       </Text>
@@ -42,11 +39,17 @@ export default function ListScreen({ route }) {
           <ButtonCategory
             text={"Adicionar"}
             className="border-black bg-amber-500 active:border-white active:bg-black"
-            press={() => setOpenBuscar(!openBuscar)}
           />
         </View>
         <View className="-z-0 flex-1 items-center">
           <ScrollView>
+            {
+              lista1.map((item)=>{
+                return(
+                  <CardHorizontal title={item.title.romaji} key={item.id} image={item.coverImage.large} id={item.id}/>
+                )
+              })
+            }
           </ScrollView>
         </View>
       </View>

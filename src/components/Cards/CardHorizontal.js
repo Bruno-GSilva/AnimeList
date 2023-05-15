@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Image, Pressable, Text, View} from "react-native";
 
 import { ModalDelete } from "../Modals/ModalDelete";
 import { Dropdown } from "../Dropdown";
+import MyContext from "../Contexts/MyContext";
 
 export function CardHorizontal(props) {
   const [DeleteCard, setDeleteCard] = useState(false);
   const [select, setSelect] = useState();
+
+  
+ 
 
   return (
     <View className="flex-1 my-1 flex-row items-center justify-between rounded-md bg-black border-2 border-amber-500 overflow-hidden">
@@ -21,7 +25,7 @@ export function CardHorizontal(props) {
               : "https://pt.apkshki.com/storage/12708/icon_63d4e34c0e569_12708_w256.png",
           }}
         />
-        <ModalDelete open={DeleteCard} />
+        <ModalDelete open={DeleteCard}/>
       </Pressable>
       <View className="h-full w-1/2 rounded-2xl p-2">
         <View className="flex-1 flex-row items-center justify-between">

@@ -7,9 +7,6 @@ import MyContext from "../components/Contexts/MyContext";
 
 export default function ListScreen({ route }) {
   const contexto = useContext(MyContext)
-  const anime = { title, genres, episodes, coverImage, status, description } = route.params
-  
-
   const { lista1, setLista1 }  = contexto
 
   const getAnime = (item) =>{
@@ -17,8 +14,8 @@ export default function ListScreen({ route }) {
   }
 
   useEffect(()=>{
-    getAnime( anime )
-    lista1.map(item => console.log(item.status))
+    getAnime( route.params )
+    // lista1.map(item => console.log(item.status))
   },[route.params])
 
 
@@ -44,11 +41,14 @@ export default function ListScreen({ route }) {
         <View className="-z-0 flex-1 items-center">
           <ScrollView>
             {
+              lista1?.length?(
               lista1.map((item)=>{
                 return(
-                  <CardHorizontal title={item.title.romaji} key={item.id} image={item.coverImage.large} id={item.id}/>
+                  <CardHorizontal title={item?.title?.romaji} key={item?.id} image={item?.coverImage?.large} id={item?.id}/>
                 )
-              })
+              })):(
+                <CardHorizontal key={0}/>
+              )
             }
           </ScrollView>
         </View>

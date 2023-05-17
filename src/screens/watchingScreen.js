@@ -1,48 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import React, { useContext, useEffect, useState } from "react";
+import { FlatList, Text, View } from "react-native";
 import Header from "../components/Header";
 import { CardHorizontal } from "../components/Cards/CardHorizontal";
 import { ButtonCategory } from "../components/Buttons/ButtonCategory";
+import MyContext from "../components/Contexts/MyContext";
 import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
-import axios from "axios";
 
-export default function WatchingScreen() {
-  const [dataAnime, setDataAnime] = useState([]);
+export default function WatchingScreen({ route }) {
+  const contexto = useContext(MyContext);
+  const { lista1, setLista1 } = contexto;
+
   const [openBuscar, setBuscar] = useState(false);
 
-  const animeCard = async (query) => {
-    const response = await axios.post("https://graphql.anilist.co", {
-      query: `
-        query ($search: String) {
-          Page(perPage: 10) {
-            media(search: $search, type: ANIME, isAdult:false) {
-              id
-              title {
-                romaji
-                english
-                native
-              }
-              description(asHtml: false)
-              genres
-              status
-              episodes
-              coverImage {
-                large
-              }
-            }
-          }
-        }
-      `,
-      variables: {
-        search: query,
-      },
-    });
-    setDataAnime(response.data.data.Page.media);
+  const getAnime = (item) => {
+    setLista1([...lista1, item]);
   };
 
+  // const deleteAnime = (itemId) => {
+  //   const novaLista = lista1.filter((item) => item.id !== itemId);
+  //   setLista1(novaLista);
+  // };
+
   useEffect(() => {
-    animeCard();
-  }, []);
+    getAnime(route.params);
+  }, [route.params]);
 
   return (
     <View className="z-10 flex-1 items-center bg-black">
@@ -51,44 +32,38 @@ export default function WatchingScreen() {
       <Text className="z-10 text-2xl font-bold text-white mb-5">
         Minha Lista
       </Text>
-      <View className="z-10 flex-1 rounded-3xl bg-slate-700 p-2 mx-1">
+      <View className="z-10 flex-1 rounded-t-3xl bg-slate-700 p-2 mx-1">
         <View className="flex-row justify-between items-center p-5">
           <ButtonCategory
             text={"Assistindo"}
-            className="border-sky-500 active:bg-sky-500 shadow-sky-500"
+            className="border-sky-500 shadow-sky-500 active:bg-sky-500"
           />
           <ButtonCategory
             text={"Adicionar"}
-            className="border-black bg-amber-500 active:border-white active:bg-black"
             press={() => setBuscar(!openBuscar)}
+            className="border-black bg-amber-500 active:border-white active:bg-black"
           />
         </View>
         <View className="-z-0 flex-1 items-center">
-          <ScrollView>
-            {dataAnime?.length ? ((
-                dataAnime.map((anime) => {
-                  return (
-                    <CardHorizontal
-                      image={anime.coverImage.large}
-                      title={anime.title.romaji}
-                      genres={anime.genres}
-                      episodes={anime.episodes}
-                      status={anime.status}
-                      key={anime.id}                      
-                    />
-                  );
-                })
-              )
-            ) : (
-              <Image
-                source={{
-                  uri: "https://www.gifcen.com/wp-content/uploads/2022/09/naruto-gif-4.gif",
-                }}
-                resizeMode="contain"
-                className="w-96 h-96 my-10"
-              />
-            )}
-          </ScrollView>
+          <FlatList
+            data={lista1}
+            ListEmptyComponent={() => {
+              return <CardHorizontal />;
+            }}
+            renderItem={(anime) => {
+              return (
+                <CardHorizontal
+                  title={anime?.item?.title?.romaji}
+                  image={anime?.item?.coverImage?.large}
+                  genres={anime?.item?.genres}
+                  id={anime?.index}
+                  episodes={anime?.item?.episodes}
+                  status={anime?.item?.status}
+                />
+              );
+            }}
+            className="w-full"
+          />
         </View>
       </View>
     </View>

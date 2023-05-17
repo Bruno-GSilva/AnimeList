@@ -21,7 +21,7 @@ export function CardVertical({ anime }) {
           description,
         })
       }>
-      <View className="h-40 w-40 rounded-md my-4 border-2 border-sky-500 overflow-hidden scale-90">
+      <View className="h-40 w-40 rounded-md my-4 border-2 border-white overflow-hidden scale-90">
         <Image
           className="flex-1"
           source={{

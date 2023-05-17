@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FlatList, ScrollView, Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import Header from "../components/Header";
 import { CardHorizontal } from "../components/Cards/CardHorizontal";
 import { ButtonCategory } from "../components/Buttons/ButtonCategory";
@@ -7,7 +7,6 @@ import MyContext from "../components/Contexts/MyContext";
 import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
 
 export default function ListScreen({ route }) {
-
   const contexto = useContext(MyContext);
   const { lista1, setLista1 } = contexto;
 
@@ -33,7 +32,7 @@ export default function ListScreen({ route }) {
       <Text className="z-10 text-2xl font-bold text-white mb-5">
         Minha Lista
       </Text>
-      <View className="z-10 flex-1 rounded-3xl bg-slate-700 p-2 mx-1">
+      <View className="z-10 flex-1 rounded-t-3xl bg-slate-700 p-2 mx-1">
         <View className="flex-row justify-between items-center p-5">
           <ButtonCategory
             text={"Pretendo Assistir"}
@@ -51,12 +50,12 @@ export default function ListScreen({ route }) {
             renderItem={(anime) => {
               return (
                 <CardHorizontal
-                  title={anime?.item?.title?.romaji}
-                  image={anime?.item?.coverImage?.large}
-                  genres={anime?.item?.genres}
-                  id={anime?.index}
-                  episodes={anime?.item?.episodes}
-                  status={anime?.item?.status}
+                  title={anime.item?.title.romaji}
+                  image={anime.item?.coverImage.large}
+                  genres={anime.item?.genres}
+                  id={anime.index}
+                  episodes={anime.item?.episodes}
+                  status={anime.item?.status}
                 />
               );
             }}

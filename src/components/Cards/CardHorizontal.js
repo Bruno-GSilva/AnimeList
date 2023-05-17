@@ -63,7 +63,7 @@ export function CardHorizontal(props) {
           <Text className="text-sm text-white" numberOfLines={2}>
             Generos:{" "}
             <Text className="text-slate-500">
-              {props.genres ? `${props.genres[0]}/${props.genres[1]}` : "Null"}
+              {props.status ? `${props.genres[0]}/${props.genres[1]}` : "Null"}
             </Text>
           </Text>
           <Text className="text-sm text-white" numberOfLines={1}>

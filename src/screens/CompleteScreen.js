@@ -51,7 +51,7 @@ export default function CompleteScreen() {
       <Text className="z-10 text-2xl font-bold text-white mb-5">
         Minha Lista
       </Text>
-      <View className="z-10 flex-1 rounded-3xl bg-slate-700 p-2 mx-1">
+      <View className="z-10 flex-1 rounded-t-3xl bg-slate-700 p-2 mx-1">
         <View className="flex-row justify-between items-center p-5">
           <ButtonCategory
             text={"Completo"}
@@ -85,7 +85,7 @@ export default function CompleteScreen() {
                   uri: "https://www.gifcen.com/wp-content/uploads/2022/09/naruto-gif-4.gif",
                 }}
                 resizeMode="contain"
-                className="w-96 h-96 my-10"
+                className="w-96 h-96 my-10 mx-10"
               />
             )}
           </ScrollView>

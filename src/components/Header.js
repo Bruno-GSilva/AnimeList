@@ -18,7 +18,7 @@ export default function Header() {
             className="flex-1"
           />
         </Pressable>
-        <Text className="text-amber-500 font-bold text-xl">Gaby</Text>
+        <Text className="text-white font-bold text-xl">Gaby</Text>
       </View>
       <View className='flex-row gap-2'>
         <Pressable className="w-16 h-16 p-2 border-2 rounded-full bg-white overflow-hidden active:border-amber-500" onPress={() => navigate("Home")}>

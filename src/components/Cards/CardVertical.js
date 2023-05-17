@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 export function CardVertical({ anime }) {
   const { navigate } = useNavigation();
 
-  const { title, genres, episodes, coverImage, status, description } = anime;
+  const { title, genres, episodes, coverImage, status, description, id } = anime;
 
   return (
     <Pressable
@@ -15,6 +15,7 @@ export function CardVertical({ anime }) {
           title,
           genres,
           episodes,
+          id,
           coverImage,
           status,
           description,

@@ -10,7 +10,7 @@ export function Pagination({ route }) {
     route.params;
 
 
-  const {navigate} = useNavigation()
+  const { navigate } = useNavigation()
 
   return (
     <View className="z-10 flex-1 items-center bg-black">

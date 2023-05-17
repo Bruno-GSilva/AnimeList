@@ -3,7 +3,7 @@ import { CardVertical } from "./Cards/CardVertical"
 
 export const Category = ({arr, text}) =>{
     return(
-        <View>
+        <View className='scale-95'>
         <Text className="text-2xl ml-3 font-bold text-white">
           {text}
         </Text>

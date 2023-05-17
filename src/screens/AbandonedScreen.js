@@ -5,13 +5,10 @@ import { CardHorizontal } from "../components/Cards/CardHorizontal";
 import { ButtonCategory } from "../components/Buttons/ButtonCategory";
 import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
 import axios from "axios";
-import { AnimeCard } from "../components/Anilist";
 
 export default function AbandonedScreen() {
   const [dataAnime, setDataAnime] = useState([]);
   const [openBuscar, setBuscar] = useState(false);
-
-  AnimeCard().then((response)=>console.log(response))
 
   return (
     <View className="z-10 flex-1 items-center bg-black">

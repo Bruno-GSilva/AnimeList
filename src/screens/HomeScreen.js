@@ -56,7 +56,7 @@ export default function HomeScreen() {
       <View className="z-10 flex-1 rounded-3xl bg-slate-700 py-2 mx-1">
         <ScrollView>
 
-          <Pressable className='h-[480px] justify-between items-center mx-6 my-4 rounded-2xl shadow-lg shadow-black bg-black border active:border-white overflow-hidden'>
+          <Pressable className='h-[580px] justify-between items-center mx-6 my-2 scale-95 rounded-2xl shadow-lg shadow-black bg-black border active:border-white overflow-hidden'>
             <Text className='w-full text-3xl mt-10 px-6 font-extrabold text-white opacity-0' numberOfLines={1}>Nome do Anime</Text>
             <Image source={{uri:'https://e1.pxfuel.com/desktop-wallpaper/51/649/desktop-wallpaper-mashle-magic-and-muscles-vol-1-komoto-hajime-9781974719297-books-mashle-magic-and-muscles.jpg'}} resizeMode="cover" className='-z-10 top-0 left-0 h-full w-full absolute'/>
           <View className='flex-row'>

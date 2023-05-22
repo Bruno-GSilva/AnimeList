@@ -5,6 +5,7 @@ import { ModalDelete } from "../Modals/ModalDelete";
 import { Dropdown } from "../Dropdown";
 
 export function CardHorizontal(props) {
+  
   const [DeleteCard, setDeleteCard] = useState(false);
   const [select, setSelect] = useState();
 
@@ -23,7 +24,7 @@ export function CardHorizontal(props) {
               : "https://pt.apkshki.com/storage/12708/icon_63d4e34c0e569_12708_w256.png",
           }}
         />
-        <ModalDelete open={DeleteCard} />
+        <ModalDelete open={DeleteCard} pressIn={props.filter}/>
       </Pressable>
       <View className="h-full w-1/2 rounded-2xl p-2">
         <View className="flex-1 flex-row items-center justify-between">

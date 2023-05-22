@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { FlatList } from "react-native";
+import { Alert, FlatList } from "react-native";
 
 import {
   Image,
@@ -56,7 +56,7 @@ export function ModalAdicionar({ open }) {
 
   if (open) {
     return (
-      <View className="z-20 absolute top-[300px] w-[390px] h-[520px] p-10 rounded-3xl bg-slate-600 border-2 border-sky-500 overflow-hidden">
+      <View className="z-20 absolute top-[300px] w-[390px] h-[420px] p-10 rounded-3xl bg-slate-600 border-2 border-sky-500 overflow-hidden">
         <View className="z-30 top-[6px] left-2">
           <Icon
             name="search"
@@ -76,12 +76,21 @@ export function ModalAdicionar({ open }) {
         <FlatList
           data={results}
           renderItem={(anime) => {
-            const getId = anime.item.id
+
+            const id = anime.item.id
+            const coverImage = anime.item.coverImage
+            const title = anime.item.title
+            const genres = anime.item.genres
+            const episodes = anime.item.episodes
+            const status = anime.item.status
+            const description = anime.item.description
+            
             return (
               <Pressable
                 key={anime.item.id}
                 onPress={() => {
-                  navigate("List", { getId });
+                  Alert.alert('Anime Adicionado')
+                  navigate("List", { title, genres, episodes, coverImage, status, description, id });
                 }}
                 className="flex-row items-center p-2 mb-2 border-2 border-black overflow-hidden rounded-xl active:border-amber-500">
                 <Image

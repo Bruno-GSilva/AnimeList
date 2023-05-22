@@ -28,6 +28,7 @@ export function Input(props) {
           placeholderTextColor={'gray'}
           value={props.value}
           onChangeText={props.input}
+          
         >
         </TextInput>
     </View>

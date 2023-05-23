@@ -11,7 +11,7 @@ import CompleteScreen from "../src/screens/CompleteScreen";
 import AbandonedScreen from "../src/screens/AbandonedScreen";
 import WatchingScreen from "../src/screens/watchingScreen";
 // paginas de animes
-import { Pagination } from "../src/components/Modals/Pagination";
+import { Pagination } from "../src/screens/Pagination";
 // ContextLists
 const Stack = createStackNavigator();
 

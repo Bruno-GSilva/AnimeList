@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, Pressable, Text, View } from "react-native";
+import { Alert, Image, Pressable, Text, View } from "react-native";
 
 import { ModalDelete } from "../Modals/ModalDelete";
 import { Dropdown } from "../Dropdown";
@@ -24,7 +24,7 @@ export function CardHorizontal(props) {
               : "https://pt.apkshki.com/storage/12708/icon_63d4e34c0e569_12708_w256.png",
           }}
         />
-        <ModalDelete open={DeleteCard} pressIn={props.filter}/>
+        <ModalDelete open={DeleteCard} pressIn={props.longPress}/>
       </Pressable>
       <View className="h-full w-1/2 rounded-2xl p-2">
         <View className="flex-1 flex-row items-center justify-between">

@@ -1,24 +1,26 @@
-import { Alert, Image, Pressable, ScrollView, Text, View } from "react-native";
-import Header from "../Header";
-import { ButtonCategory } from "../Buttons/ButtonCategory";
-import { CardMini } from "../Cards/CardMini";
-import { useNavigation } from "@react-navigation/native";
+import { Alert, Image, ScrollView, Text, View } from "react-native";
 import { useContext, useEffect } from "react";
-import MyContext from "../Contexts/MyContext";
+import MyContext from "../components/Contexts/MyContext";
+import Header from "../components/Header";
+import { ButtonCategory } from "../components/Buttons/ButtonCategory";
+import { CardMini } from "../components/Cards/CardMini";
 
 export function Pagination({ route }) {
-  const { title, genres, episodes, coverImage, status, description, id } =
-    route.params;
-
   const contexto = useContext(MyContext);
+
+  const { title, genres, episodes, coverImage, status, description, id } = route.params;
   const { lista1, setLista1 } = contexto;
 
   const getAnime = (item) => {
     // Verifica se o item já está presente na lista1 pelo id
     const isItemInList = lista1.some((listItem) => listItem.id === item.id);
-    isItemInList? Alert.alert("Anime já está na lista"):(
-      setLista1([...lista1, item]), Alert.alert("Anime adicionado à lista")
-      );
+
+    if (isItemInList) {
+      Alert.alert("Anime já está na lista");
+    } else {
+      setLista1([...lista1, item]);
+      Alert.alert("Anime adicionado à lista");
+    }
   };
 
   const addList = () => {

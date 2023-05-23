@@ -1,29 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import React from "react";
+
+import { FlatList, Text, View, Alert } from "react-native";
+
+import MyContext from "../components/Contexts/MyContext";
 import Header from "../components/Header";
+
 import { CardHorizontal } from "../components/Cards/CardHorizontal";
 import { ButtonCategory } from "../components/Buttons/ButtonCategory";
-import MyContext from "../components/Contexts/MyContext";
 import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
 
 export default function ListScreen({ route }) {
-  const contexto = useContext(MyContext);
-  const { lista1, setLista1 } = contexto;
+  const contexto = React.useContext(MyContext);
 
-  const [openBuscar, setBuscar] = useState(false);
+  const { lista1, setLista1, deleteItem } = contexto;
+  const [openBuscar, setBuscar] = React.useState(false);
 
-  const getAnime = (item) => {
-    setLista1([...lista1, item]);
+  const handleDeleteItem = (listName, itemId) => {
+    deleteItem(listName, itemId);
+    Alert.alert("anime deletado");
   };
-
-  // const deleteAnime = (itemId) => {
-  //   const novaLista = lista1.filter((item) => item.id !== itemId);
-  //   setLista1(novaLista);
-  // };
-
-  useEffect(() => {
-    getAnime(route.params);
-  }, [route.params]);
 
   return (
     <View className="z-10 flex-1 items-center bg-black">
@@ -44,16 +39,19 @@ export default function ListScreen({ route }) {
             className="border-black bg-amber-500 active:border-white active:bg-black"
           />
         </View>
-        <View className="-z-0 flex-1 items-center">
+        
+        <View className="-z-0 flex-1 items-center scale-95 gap-1">
           <FlatList
             data={lista1}
-            renderItem={(anime) => {
+            ListEmptyComponent={(<CardHorizontal />)}
+            renderItem={ anime => {
               return (
                 <CardHorizontal
                   title={anime.item?.title.romaji}
                   image={anime.item?.coverImage.large}
                   genres={anime.item?.genres}
                   id={anime.index}
+                  longPress={()=>handleDeleteItem( "lista1" , anime.item.id)}
                   episodes={anime.item?.episodes}
                   status={anime.item?.status}
                 />

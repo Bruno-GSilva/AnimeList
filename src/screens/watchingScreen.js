@@ -7,23 +7,15 @@ import MyContext from "../components/Contexts/MyContext";
 import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
 
 export default function WatchingScreen({ route }) {
-  const contexto = useContext(MyContext);
-  const { lista1, setLista1 } = contexto;
-
   const [openBuscar, setBuscar] = useState(false);
+  const contexto = useContext(MyContext);
+  const { lista1, setLista1, deleteItem } = contexto;
 
-  const getAnime = (item) => {
-    setLista1([...lista1, item]);
+  
+  const handleDeleteItem = (listName, itemId) => {
+    deleteItem(listName, itemId);
+    Alert.alert("anime deletado");
   };
-
-  // const deleteAnime = (itemId) => {
-  //   const novaLista = lista1.filter((item) => item.id !== itemId);
-  //   setLista1(novaLista);
-  // };
-
-  useEffect(() => {
-    getAnime(route.params);
-  }, [route.params]);
 
   return (
     <View className="z-10 flex-1 items-center bg-black">
@@ -44,21 +36,20 @@ export default function WatchingScreen({ route }) {
             className="border-black bg-amber-500 active:border-white active:bg-black"
           />
         </View>
-        <View className="-z-0 flex-1 items-center">
+        <View className="-z-0 flex-1 items-center scale-95 gap-1">
           <FlatList
             data={lista1}
-            ListEmptyComponent={() => {
-              return <CardHorizontal />;
-            }}
-            renderItem={(anime) => {
+            ListEmptyComponent={(<CardHorizontal />)}
+            renderItem={ anime => {
               return (
                 <CardHorizontal
-                  title={anime?.item?.title?.romaji}
-                  image={anime?.item?.coverImage?.large}
-                  genres={anime?.item?.genres}
-                  id={anime?.index}
-                  episodes={anime?.item?.episodes}
-                  status={anime?.item?.status}
+                  title={anime.item?.title.romaji}
+                  image={anime.item?.coverImage.large}
+                  genres={anime.item?.genres}
+                  id={anime.index}
+                  longPress={()=>handleDeleteItem( "lista1" , anime.item.id)}
+                  episodes={anime.item?.episodes}
+                  status={anime.item?.status}
                 />
               );
             }}

@@ -7,23 +7,12 @@ import MyContext from "../components/Contexts/MyContext";
 import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
 
 export default function AbandonedScreen({ route }) {
-  const contexto = useContext(MyContext);
-  const { lista1, setLista1 } = contexto;
 
   const [openBuscar, setBuscar] = useState(false);
+  const contexto = useContext(MyContext);
+  
+  const { lista1, setLista1 } = contexto;
 
-  const getAnime = (item) => {
-    setLista1([...lista1, item]);
-  };
-
-  // const deleteAnime = (itemId) => {
-  //   const novaLista = lista1.filter((item) => item.id !== itemId);
-  //   setLista1(novaLista);
-  // };
-
-  useEffect(() => {
-    getAnime(route.params);
-  }, [route.params]);
 
   return (
     <View className="z-10 flex-1 items-center bg-black">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React  from "react";
 import { useNavigation } from "@react-navigation/native";
 
 import { Pressable, Text, View, ImageBackground, Alert } from "react-native";
@@ -6,66 +6,66 @@ import { ButtonPrimary } from "../components/Buttons/ButtonPrimary";
 import { Input } from "../components/InputText";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 
 export default function LoginScreen({ navigation }) {
   const { navigate } = useNavigation();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, setUser] = useState(false);
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [user, setUser] = useState(false);
 
-  const storeUserLogin = async () => {
-    try {
-      await AsyncStorage.setItem('userLoggedIn', 'true');
-    } catch (error) {
-      console.log('Error storing user login state:', error);
-    }
-  };
+  // const storeUserLogin = async () => {
+  //   try {
+  //     await AsyncStorage.setItem('userLoggedIn', 'true');
+  //   } catch (error) {
+  //     console.log('Error storing user login state:', error);
+  //   }
+  // };
 
   
 
-  function validation() {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        setUser(true);
-        storeUserLogin(); // Armazena o estado de login como "true" no AsyncStorage
-      })
-      .catch((error) => {
-        setUser(false);
-        const errorCode = error.code;
-        const errorMessage =
-          errorCode === "auth/user-not-found"
-            ? "Usuário não encontrado."
-            : errorCode === "auth/wrong-password"
-            ? "Senha incorreta."
-            : "Erro desconhecido. Tente novamente mais tarde.";
+  // function validation() {
+  //   const auth = getAuth();
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       setUser(true);
+  //       storeUserLogin(); // Armazena o estado de login como "true" no AsyncStorage
+  //     })
+  //     .catch((error) => {
+  //       setUser(false);
+  //       const errorCode = error.code;
+  //       const errorMessage =
+  //         errorCode === "auth/user-not-found"
+  //           ? "Usuário não encontrado."
+  //           : errorCode === "auth/wrong-password"
+  //           ? "Senha incorreta."
+  //           : "Erro desconhecido. Tente novamente mais tarde.";
 
-        Alert.alert(errorMessage);
-      });
-  }
+  //       Alert.alert(errorMessage);
+  //     });
+  // }
 
-  useEffect(() => {
-    const checkUserLogin = async () => {
-      try {
-        const value = await AsyncStorage.getItem('userLoggedIn');
-        if (value === 'true') {
-          setUser(true);
-        }
-      } catch (error) {
-        console.log('Error checking user login state:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const checkUserLogin = async () => {
+  //     try {
+  //       const value = await AsyncStorage.getItem('userLoggedIn');
+  //       if (value === 'true') {
+  //         setUser(true);
+  //       }
+  //     } catch (error) {
+  //       console.log('Error checking user login state:', error);
+  //     }
+  //   };
 
-    checkUserLogin(); // Verifica o estado de login ao carregar o componente
+  //   checkUserLogin(); // Verifica o estado de login ao carregar o componente
 
-    if (user === true) {
-      navigate("Home");
-    }
-  }, [user]);
+  //   if (user === true) {
+  //     navigate("Home");
+  //   }
+  // }, [user]);
 
   return (
     <ImageBackground

@@ -8,13 +8,24 @@ import { Category } from "../components/Category";
 import { ButtonCategory } from "../components/Buttons/ButtonCategory";
 
 export default function HomeScreen() {
-
   const [animeListPage1, setAnimeListPage1] = useState([]);
   const [animeListPage2, setAnimeListPage2] = useState([]);
   const [animeListPage3, setAnimeListPage3] = useState([]);
   const [animeListPage4, setAnimeListPage4] = useState([]);
 
   const fetchAnimeList = async (page, setState) => {
+    const currentDate = new Date();
+    const startOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      1
+    );
+    const endOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + 1,
+      1
+    );
+
     const response = await axios.post("https://graphql.anilist.co/", {
       query: `
         query ($page: Int, $perPage: Int) {
@@ -38,6 +49,16 @@ export default function HomeScreen() {
         }
       `,
       variables: {
+        startDate: {
+          year: startOfMonth.getFullYear(),
+          month: startOfMonth.getMonth() + 1,
+          day: startOfMonth.getDate(),
+        },
+        endDate: {
+          year: endOfMonth.getFullYear(),
+          month: endOfMonth.getMonth() + 1,
+          day: endOfMonth.getDate(),
+        },
         page: page,
         perPage: 5,
       },
@@ -60,8 +81,7 @@ export default function HomeScreen() {
           <Pressable className="h-[480px] justify-between items-center mx-6 my-2 rounded-2xl shadow-lg shadow-black bg-black border active:border-white overflow-hidden">
             <Text
               className="w-full text-3xl mt-10 px-6 font-extrabold text-white opacity-0"
-              numberOfLines={1}
-            >
+              numberOfLines={1}>
               Nome do Anime
             </Text>
             <Image
@@ -71,14 +91,14 @@ export default function HomeScreen() {
               resizeMode="cover"
               className="-z-10 top-0 left-0 h-full w-full absolute"
             />
-            <View className="flex-row">
+            <View className="flex-row gap-8">
               <ButtonCategory
                 text={"+ Minha Lista"}
-                className="z-30 mx-8  scale-110 border-amber-500 active:border-white bg-black"
+                className="z-30   border-amber-500 active:border-white bg-black"
               />
               <ButtonCategory
                 text={"Saiba Mais"}
-                className=" z-30 mx-8 scale-110 active:border-white h-10 w-32"
+                className=" z-30  active:border-amber-500 bg-black"
               />
             </View>
           </Pressable>

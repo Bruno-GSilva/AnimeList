@@ -1,22 +1,15 @@
-import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import React, { useContext, useEffect, useState } from "react";
 import { Alert, FlatList } from "react-native";
 
-import {
-  Image,
-  Pressable,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { Image, Pressable, Text, TextInput, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import axios from "axios";
+import MyContext from "../Contexts/MyContext";
 
-export function ModalAdicionar({ open }) {
-
+export function ModalAdicionar({ open, list }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const { navigate } = useNavigation();
+  const [choiceAnime, setChoiceAnime] = useState([]);
 
   const searchAnime = async (query) => {
     const response = await axios.post("https://graphql.anilist.co", {
@@ -54,6 +47,28 @@ export function ModalAdicionar({ open }) {
     searchAnime(e);
   };
 
+  const contexto = useContext(MyContext);
+  const { lista1, setLista1, lista2, setLista2, lista3, setLista3, lista4, setLista4 } = contexto;
+
+  const getAnime = (item, lista, setLista) => {
+    const isItemInList = lista.some((listItem) => listItem.id === item.id);
+
+    if (isItemInList) {
+      Alert.alert("Anime já está na lista");
+    } else {
+      setLista([...lista, item]);
+      Alert.alert("Anime adicionado à lista");
+    }
+  };
+
+  const addList = (anime) => {
+    getAnime(anime, lista2, setLista2)
+  };
+
+  useEffect(() => {
+    console.log(choiceAnime);
+  }, [choiceAnime])
+
   if (open) {
     return (
       <View className="z-20 absolute top-[300px] w-[390px] h-[420px] p-10 rounded-3xl bg-slate-600 border-2 border-sky-500 overflow-hidden">
@@ -72,27 +87,15 @@ export function ModalAdicionar({ open }) {
           value={query}
           onChangeText={handleInputChange}
         />
-        
+
         <FlatList
           data={results}
           renderItem={(anime) => {
-
-            const id = anime.item.id
-            const coverImage = anime.item.coverImage
-            const title = anime.item.title
-            const genres = anime.item.genres
-            const episodes = anime.item.episodes
-            const status = anime.item.status
-            const description = anime.item.description
-            
             return (
               <Pressable
                 key={anime.item.id}
-                onPress={() => {
-                  Alert.alert('Anime Adicionado')
-                  navigate("List", { title, genres, episodes, coverImage, status, description, id });
-                }}
-                className="flex-row items-center p-2 mb-2 border-2 border-black overflow-hidden rounded-xl active:border-amber-500">
+                className="flex-row items-center p-2 mb-2 border-2 border-black overflow-hidden rounded-xl active:border-amber-500"
+                onPress={() => setChoiceAnime(addList(anime.item))}>
                 <Image
                   className="w-32 h-32 rounded-xl mr-2"
                   source={{ uri: anime.item.coverImage.large }}

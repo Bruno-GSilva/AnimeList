@@ -9,7 +9,7 @@ import { ModalAdicionar } from "../components/Modals/ModalAdicionar";
 export default function WatchingScreen({ route }) {
   const [openBuscar, setBuscar] = useState(false);
   const contexto = useContext(MyContext);
-  const { lista1, setLista1, deleteItem } = contexto;
+  const { lista4, setLista4, deleteItem } = contexto;
 
   
   const handleDeleteItem = (listName, itemId) => {
@@ -38,7 +38,7 @@ export default function WatchingScreen({ route }) {
         </View>
         <View className="-z-0 flex-1 items-center scale-95 gap-1">
           <FlatList
-            data={lista1}
+            data={lista4}
             ListEmptyComponent={(<CardHorizontal />)}
             renderItem={ anime => {
               return (

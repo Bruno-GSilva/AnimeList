@@ -23,6 +23,11 @@ export function Pagination({ route }) {
     }
   };
 
+  useEffect(() => {
+    // getAnime(choiceAnime);
+    console.log(route.params);
+  }, [route.params])
+
   const addList = () => {
     getAnime(route.params);
   };

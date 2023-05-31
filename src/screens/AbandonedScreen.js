@@ -11,7 +11,7 @@ export default function AbandonedScreen({ route }) {
   const [openBuscar, setBuscar] = useState(false);
   const contexto = useContext(MyContext);
   
-  const { lista1, setLista1 } = contexto;
+  const { lista2, setLista2 } = contexto;
 
 
   return (
@@ -35,7 +35,7 @@ export default function AbandonedScreen({ route }) {
         </View>
         <View className="-z-0 flex-1 items-center">
           <FlatList
-            data={lista1}
+            data={lista2}
             ListEmptyComponent={() => {
               return <CardHorizontal />;
             }}

@@ -15,15 +15,14 @@ O Anime List App é um aplicativo desenvolvido em React Native estilizado com Ta
 - Possibilidade de adicionar novos animes à lista por meio da tela "Adicionar", inserindo informações como título, gênero, sinopse, classificação e imagem.
 - Integração com a API Anilist.co para obter dados atualizados sobre animes.
 
-## Screenshots
-
-Aqui estão algumas capturas de tela do Anime List App:
-
 ### Tela Inicial (Home)
 
 Descrição: A tela inicial exibe as categorias de animes, como "Mais populares da temporada" e "Animes da temporada". Os usuários podem navegar por essas categorias para descobrir novos animes.
 
-<img src="assets/1.png" alt="" style="height: 400px; width: 250px;">
+<div style="display: flex;">
+    <img src="assets/1.png" alt="" style="height: 400px; width: 250px;">
+    <img src="assets/2.png" alt="" style="height: 400px; width: 250px;">
+</div>
 
 ### Tela de Login e Registro
 
@@ -36,27 +35,21 @@ Descrição: Nesta tela, os usuários podem fazer login em suas contas existente
 
 ### Tela de Lista de Animes Concluídos
 
-Descrição: Esta tela exibe a lista de animes que o usuário já concluiu assistir. Os animes nessa lista são marcados como "concluídos" e exibem informações relevantes, como título e imagem.
+Esta tela exibe a lista de animes que o usuário já concluiu assistir. Os animes nessa lista são marcados como "concluídos" e exibem informações relevantes, como título e imagem.
 
 <img src="assets/3.png" alt="" style="height: 400px; width: 250px;">
 
 ### Tela de Lista de Animes Assistindo
 
-Descrição: Nesta tela, o usuário pode visualizar a lista de animes que está atualmente assistindo. Os animes nessa lista são marcados como "assistindo" e o usuário pode atualizar facilmente o episódio em que parou.
-
-<img src="assets/2.png" alt="" style="height: 400px; width: 250px;">
+Nesta tela, o usuário pode visualizar a lista de animes que está atualmente assistindo. Os animes nessa lista são marcados como "assistindo" e o usuário pode atualizar facilmente o episódio em que parou.
 
 ### Tela de Lista de Animes Abandonados
 
-Descrição: Nesta tela, o usuário pode ver a lista de animes que começou a assistir, mas decidiu abandonar. Esses animes são marcados como "abandonados" e o usuário pode removê-los da lista, se desejar.
-
-<img src="assets/3.png" alt="" style="height: 400px; width: 250px;">
+Nesta tela, o usuário pode ver a lista de animes que começou a assistir, mas decidiu abandonar. Esses animes são marcados como "abandonados" e o usuário pode removê-los da lista, se desejar.
 
 ### Tela de Lista de Animes Pretendo Assistir
 
-Descrição: Nesta tela, o usuário pode visualizar a lista de animes que planeja assistir no futuro. Os animes nessa lista são marcados como "pretendo assistir" e o usuário pode adicionar ou remover animes conforme necessário.
-
-<img src="assets/3.png" alt="" style="height: 400px; width: 250px;">
+Nesta tela, o usuário pode visualizar a lista de animes que planeja assistir no futuro. Os animes nessa lista são marcados como "pretendo assistir" e o usuário pode adicionar ou remover animes conforme necessário.
 
 ## Tecnologias Utilizadas
 
@@ -70,8 +63,8 @@ Descrição: Nesta tela, o usuário pode visualizar a lista de animes que planej
 
 ## Pré-requisitos
 
-- Node.js (versão X.X.X)
-- Expo CLI (versão X.X.X)
+- Node.js (versão v18.16.0)
+- Expo CLI (versão ^48.0.18)
 - Firebase account (para configurar o Firebase Authentication)
 - Anilist.co API key (para acesso aos dados dos animes)
 

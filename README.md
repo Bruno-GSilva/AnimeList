@@ -2,7 +2,7 @@
 
 O Anime List App é um aplicativo desenvolvido em React Native estilizado com Tailwindcss, que permite aos usuários criarem suas próprias listas personalizadas de animes e acompanharem seu progresso.
 
-![App Screenshots](/path/to/screenshots.png)
+![App Screenshots](./assets/1.png)
 
 ## Funcionalidades Principais
 
@@ -20,41 +20,37 @@ Aqui estão algumas capturas de tela do Anime List App:
 
 Descrição: A tela inicial exibe as categorias de animes, como "Mais populares da temporada" e "Animes da temporada". Os usuários podem navegar por essas categorias para descobrir novos animes.
 
-![Tela Inicial](/path/to/home.png)
+![Tela Inicial](./assets/1.png)
 
 ### Tela de Login e Registro
 
 Descrição: Nesta tela, os usuários podem fazer login em suas contas existentes ou se registrar para criar uma nova conta. Eles podem utilizar endereço de e-mail e senha, ou optar por autenticação social, como login com Google ou Facebook.
 
-![Tela de Login e Registro](/path/to/login.png)
+![Tela de Login e Registro](./assets/4.png)
 
 ### Tela de Lista de Animes Concluídos
 
 Descrição: Esta tela exibe a lista de animes que o usuário já concluiu assistir. Os animes nessa lista são marcados como "concluídos" e exibem informações relevantes, como título e imagem.
 
-![Tela de Animes Concluídos](/path/to/concluidos.png)
+![Tela de Animes Concluídos](./assets/5.png)
 
 ### Tela de Lista de Animes Assistindo
 
 Descrição: Nesta tela, o usuário pode visualizar a lista de animes que está atualmente assistindo. Os animes nessa lista são marcados como "assistindo" e o usuário pode atualizar facilmente o episódio em que parou.
 
-![Tela de Animes Assistindo](/path/to/assistindo.png)
+![Tela de Animes Assistindo](./assets/2.png)
 
 ### Tela de Lista de Animes Abandonados
 
 Descrição: Nesta tela, o usuário pode ver a lista de animes que começou a assistir, mas decidiu abandonar. Esses animes são marcados como "abandonados" e o usuário pode removê-los da lista, se desejar.
 
-![Tela de Animes Abandonados](/path/to/abandonados.png)
+![Tela de Animes Abandonados](./assets/3.png)
 
 ### Tela de Lista de Animes Pretendo Assistir
 
 Descrição: Nesta tela, o usuário pode visualizar a lista de animes que planeja assistir no futuro. Os animes nessa lista são marcados como "pretendo assistir" e o usuário pode adicionar ou remover animes conforme necessário.
 
-![Tela de Animes Pretendo Assistir](/path/to/pretendo_assistir.png)
-
-## Documentação
-
-A documentação completa do Anime List App pode ser encontrada em [link_para_documentação](https://exemplo.com).
+![Tela de Animes Pretendo Assistir](./assets/3.png)
 
 ## Tecnologias Utilizadas
 

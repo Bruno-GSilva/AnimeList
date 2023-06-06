@@ -20,8 +20,8 @@ O Anime List App é um aplicativo desenvolvido em React Native estilizado com Ta
 Descrição: A tela inicial exibe as categorias de animes, como "Mais populares da temporada" e "Animes da temporada". Os usuários podem navegar por essas categorias para descobrir novos animes.
 
 <div style="display: flex;">
-    <img src="assets/demo/1.jpeg" alt="" style="height: 400px; width: 250px;">
-    <img src="assets/demo/5.jpeg" alt="" style="height: 400px; width: 250px;">
+    <img src="assets/demo/1.jpeg" alt="" style="height: 400px; width: 210px;">
+    <img src="assets/demo/5.jpeg" alt="" style="height: 400px; width: 210px;">
 </div>
 
 ### Tela de Login e Registro
@@ -29,8 +29,8 @@ Descrição: A tela inicial exibe as categorias de animes, como "Mais populares 
 Descrição: Nesta tela, os usuários podem fazer login em suas contas existentes ou se registrar para criar uma nova conta. Eles podem utilizar endereço de e-mail e senha, ou optar por autenticação social, como login com Google ou Facebook.
 
 <div style="display: flex;">
-    <img src="assets/demo/2.jpeg" alt="" style="height: 400px; width: 250px;">
-    <img src="assets/demo/3.jpeg" alt="" style="height: 400px; width: 250px;">
+    <img src="assets/demo/2.jpeg" alt="" style="height: 400px; width: 210px;">
+    <img src="assets/demo/3.jpeg" alt="" style="height: 400px; width: 210px;">
 </div>
 
 ### Tela de Lista de Animes Concluídos
@@ -38,8 +38,8 @@ Descrição: Nesta tela, os usuários podem fazer login em suas contas existente
 Esta tela exibe a lista de animes que o usuário já concluiu assistir. Os animes nessa lista são marcados como "concluídos" e exibem informações relevantes, como título e imagem.
 
 <div style="display: flex;">
-    <img src="assets/demo/7.jpeg" alt="" style="height: 400px; width: 250px;">
-    <img src="assets/demo/10.jpeg" alt="" style="height: 400px; width: 250px;">
+    <img src="assets/demo/7.jpeg" alt="" style="height: 400px; width: 210px;">
+    <img src="assets/demo/10.jpeg" alt="" style="height: 400px; width: 210px;">
 </div>
 
 ### Tela de Lista de Animes Assistindo
